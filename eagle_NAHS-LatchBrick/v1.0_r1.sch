@@ -9376,6 +9376,16 @@ Source: http://www.ftdichip.com/Documents/DataSheets/DS_FT232R_v104.pdf</descrip
 <pad name="4" x="7.62" y="0" drill="1"/>
 <text x="0" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 </package>
+<package name="1X02_O_1">
+<pad name="1" x="0" y="0" drill="1" shape="offset" rot="R270"/>
+<pad name="2" x="2.54" y="0" drill="1" shape="offset" rot="R270"/>
+<text x="0" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+</package>
+<package name="1X02_R_1">
+<pad name="1" x="0" y="0" drill="1"/>
+<pad name="2" x="2.54" y="0" drill="1"/>
+<text x="0" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="1X01">
@@ -9487,6 +9497,38 @@ Source: http://www.ftdichip.com/Documents/DataSheets/DS_FT232R_v104.pdf</descrip
 <connect gate="_2" pin="1" pad="2"/>
 <connect gate="_3" pin="1" pad="3"/>
 <connect gate="_4" pin="1" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DRILL" value="1mm"/>
+<attribute name="PADSHAPE" value="round"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PINHD_1X02" prefix="JP">
+<gates>
+<gate name="_1" symbol="1X01" x="0" y="0" addlevel="always"/>
+<gate name="_2" symbol="1X01" x="0" y="-2.54" addlevel="always"/>
+</gates>
+<devices>
+<device name="_O_1" package="1X02_O_1">
+<connects>
+<connect gate="_1" pin="1" pad="1"/>
+<connect gate="_2" pin="1" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DRILL" value="1mm" constant="no"/>
+<attribute name="PADSHAPE" value="offset" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="_R_1" package="1X02_R_1">
+<connects>
+<connect gate="_1" pin="1" pad="1"/>
+<connect gate="_2" pin="1" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
@@ -11576,6 +11618,7 @@ Source: www.kingbright.com</description>
 <schematic_group name="BAT_HOLDER"/>
 <schematic_group name="MAINIC"/>
 <schematic_group name="TESTPOINTS"/>
+<schematic_group name="LATCH_DETECT"/>
 </groups>
 <parts>
 <part name="IC1" library="no_expressif" deviceset="ESP12" device="F"/>
@@ -11584,8 +11627,8 @@ Source: www.kingbright.com</description>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="0.4"/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1.74k"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100"/>
-<part name="IC2" library="no_reichelt" deviceset="TP4056" device=""/>
-<part name="IC3" library="no_reichelt" deviceset="DW01A" device=""/>
+<part name="IC3" library="no_reichelt" deviceset="TP4056" device=""/>
+<part name="IC4" library="no_reichelt" deviceset="DW01A" device=""/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1k"/>
 <part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="10µF"/>
@@ -11598,17 +11641,17 @@ Source: www.kingbright.com</description>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="1µF"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="IC4" library="ftdichip" library_urn="urn:adsk.eagle:library:231" deviceset="FT232R" device="L" package3d_urn="urn:adsk.eagle:package:14013/1"/>
+<part name="IC5" library="ftdichip" library_urn="urn:adsk.eagle:library:231" deviceset="FT232R" device="L" package3d_urn="urn:adsk.eagle:package:14013/1"/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100nF"/>
 <part name="J1" library="no_reichelt" deviceset="10118194-0001LF" device="" package3d_urn="urn:adsk.eagle:package:19610273/8"/>
-<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2.7M"/>
-<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="590k"/>
+<part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2.7M"/>
+<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="590k"/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="TPB+" library="no_pinhd" deviceset="PINHD_1X01" device="_S_0.8"/>
 <part name="TPB-" library="no_pinhd" deviceset="PINHD_1X01" device="_S_0.8"/>
@@ -11618,10 +11661,14 @@ Source: www.kingbright.com</description>
 <part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1k"/>
 <part name="JP2" library="no_pinhd" deviceset="PINHD_1X03" device="_R_1"/>
 <part name="R" library="no_reichelt" deviceset="KMR_231_G_LFS" device=""/>
-<part name="IC5" library="no_microchip" deviceset="ATTINY212" device="-SSNR"/>
+<part name="IC2" library="no_microchip" deviceset="ATTINY212" device="-SSNR"/>
 <part name="UPDI" library="no_pinhd" deviceset="PINHD_1X01" device="_S_0.8"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="L1" library="no_pinhd" deviceset="PINHD_1X02" device="_R_1"/>
+<part name="L2" library="no_pinhd" deviceset="PINHD_1X02" device="_R_1"/>
+<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="3.9k"/>
+<part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="3.9k"/>
 </parts>
 <sheets>
 <sheet>
@@ -11636,27 +11683,27 @@ Source: www.kingbright.com</description>
 <attribute name="NAME" x="172.72" y="33.02" size="1.778" layer="95" align="top-left"/>
 <attribute name="VALUE" x="172.72" y="12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="C6" gate="G$1" x="137.16" y="73.66" smashed="yes" grouprefs="BAT_CHARGING">
-<attribute name="NAME" x="138.684" y="74.041" size="1.778" layer="95"/>
-<attribute name="VALUE" x="137.795" y="70.612" size="1.778" layer="96" rot="R270"/>
+<instance part="C6" gate="G$1" x="195.58" y="71.12" smashed="yes" grouprefs="BAT_CHARGING">
+<attribute name="NAME" x="197.104" y="71.501" size="1.778" layer="95"/>
+<attribute name="VALUE" x="196.215" y="68.072" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="R1" gate="G$1" x="137.16" y="91.44" smashed="yes" rot="R90" grouprefs="BAT_CHARGING">
-<attribute name="NAME" x="135.6614" y="87.63" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="140.462" y="87.63" size="1.778" layer="96" rot="R90"/>
+<instance part="R1" gate="G$1" x="195.58" y="88.9" smashed="yes" rot="R90" grouprefs="BAT_CHARGING">
+<attribute name="NAME" x="194.0814" y="85.09" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="198.882" y="85.09" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R5" gate="G$1" x="193.04" y="66.04" smashed="yes" rot="R90" grouprefs="BAT_CHARGING">
-<attribute name="NAME" x="191.5414" y="62.23" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="196.342" y="62.23" size="1.778" layer="96" rot="R90"/>
+<instance part="R5" gate="G$1" x="251.46" y="63.5" smashed="yes" rot="R90" grouprefs="BAT_CHARGING">
+<attribute name="NAME" x="249.9614" y="59.69" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="254.762" y="59.69" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="R2" gate="G$1" x="127" y="35.56" smashed="yes" rot="R90" grouprefs="BAT_PROTECTION">
 <attribute name="NAME" x="125.5014" y="31.75" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="130.302" y="31.75" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC2" gate="G$1" x="170.18" y="76.2" smashed="yes" grouprefs="BAT_CHARGING">
-<attribute name="NAME" x="160.02" y="88.9" size="1.778" layer="95" align="top-left"/>
-<attribute name="VALUE" x="160.02" y="63.5" size="1.778" layer="96"/>
+<instance part="IC3" gate="G$1" x="228.6" y="73.66" smashed="yes" grouprefs="BAT_CHARGING">
+<attribute name="NAME" x="218.44" y="86.36" size="1.778" layer="95" align="top-left"/>
+<attribute name="VALUE" x="218.44" y="60.96" size="1.778" layer="96"/>
 </instance>
-<instance part="IC3" gate="G$1" x="149.86" y="22.86" smashed="yes" grouprefs="BAT_PROTECTION">
+<instance part="IC4" gate="G$1" x="149.86" y="22.86" smashed="yes" grouprefs="BAT_PROTECTION">
 <attribute name="NAME" x="142.24" y="33.02" size="1.27" layer="95" align="top-left"/>
 <attribute name="VALUE" x="142.24" y="12.7" size="1.27" layer="96"/>
 </instance>
@@ -11672,30 +11719,30 @@ Source: www.kingbright.com</description>
 <attribute name="NAME" x="118.364" y="28.321" size="1.778" layer="95"/>
 <attribute name="VALUE" x="117.475" y="24.892" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="S1" gate="G$1" x="147.32" y="134.62" smashed="yes" grouprefs="VOLTAGEREGULATION">
-<attribute name="NAME" x="142.24" y="142.748" size="1.27" layer="95"/>
-<attribute name="VALUE" x="142.24" y="126.492" size="1.27" layer="96" align="top-left"/>
+<instance part="S1" gate="G$1" x="226.06" y="22.86" smashed="yes" grouprefs="VOLTAGEREGULATION">
+<attribute name="NAME" x="220.98" y="30.988" size="1.27" layer="95"/>
+<attribute name="VALUE" x="220.98" y="14.732" size="1.27" layer="96" align="top-left"/>
 </instance>
-<instance part="VR1" gate="G$1" x="182.88" y="134.62" smashed="yes" grouprefs="VOLTAGEREGULATION">
-<attribute name="NAME" x="177.8" y="128.016" size="1.27" layer="95"/>
-<attribute name="VALUE" x="177.8" y="137.414" size="1.27" layer="96"/>
+<instance part="VR1" gate="G$1" x="261.62" y="22.86" smashed="yes" grouprefs="VOLTAGEREGULATION">
+<attribute name="NAME" x="256.54" y="16.256" size="1.27" layer="95"/>
+<attribute name="VALUE" x="256.54" y="25.654" size="1.27" layer="96"/>
 </instance>
-<instance part="GND3" gate="1" x="134.62" y="134.62" smashed="yes" rot="R270" grouprefs="VOLTAGEREGULATION">
-<attribute name="VALUE" x="132.08" y="137.16" size="1.778" layer="96" rot="R270"/>
+<instance part="GND3" gate="1" x="213.36" y="22.86" smashed="yes" rot="R270" grouprefs="VOLTAGEREGULATION">
+<attribute name="VALUE" x="210.82" y="25.4" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="GND1" gate="1" x="182.88" y="116.84" smashed="yes" grouprefs="VOLTAGEREGULATION">
-<attribute name="VALUE" x="180.34" y="114.3" size="1.778" layer="96"/>
+<instance part="GND1" gate="1" x="261.62" y="5.08" smashed="yes" grouprefs="VOLTAGEREGULATION">
+<attribute name="VALUE" x="259.08" y="2.54" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V1" gate="G$1" x="195.58" y="142.24" smashed="yes" grouprefs="VOLTAGEREGULATION">
-<attribute name="VALUE" x="193.04" y="137.16" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V1" gate="G$1" x="274.32" y="30.48" smashed="yes" grouprefs="VOLTAGEREGULATION">
+<attribute name="VALUE" x="271.78" y="25.4" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="C4" gate="G$1" x="170.18" y="129.54" smashed="yes" grouprefs="VOLTAGEREGULATION">
-<attribute name="NAME" x="171.704" y="129.921" size="1.778" layer="95"/>
-<attribute name="VALUE" x="170.688" y="125.095" size="1.778" layer="96"/>
+<instance part="C4" gate="G$1" x="248.92" y="17.78" smashed="yes" grouprefs="VOLTAGEREGULATION">
+<attribute name="NAME" x="250.444" y="18.161" size="1.778" layer="95"/>
+<attribute name="VALUE" x="249.428" y="13.335" size="1.778" layer="96"/>
 </instance>
-<instance part="C5" gate="G$1" x="195.58" y="129.54" smashed="yes" grouprefs="VOLTAGEREGULATION">
-<attribute name="NAME" x="197.104" y="129.921" size="1.778" layer="95"/>
-<attribute name="VALUE" x="196.088" y="125.095" size="1.778" layer="96"/>
+<instance part="C5" gate="G$1" x="274.32" y="17.78" smashed="yes" grouprefs="VOLTAGEREGULATION">
+<attribute name="NAME" x="275.844" y="18.161" size="1.778" layer="95"/>
+<attribute name="VALUE" x="274.828" y="13.335" size="1.778" layer="96"/>
 </instance>
 <instance part="GND2" gate="1" x="7.62" y="106.68" smashed="yes" grouprefs="MAINIC">
 <attribute name="VALUE" x="5.08" y="104.14" size="1.778" layer="96"/>
@@ -11703,15 +11750,15 @@ Source: www.kingbright.com</description>
 <instance part="+3V2" gate="G$1" x="7.62" y="119.38" smashed="yes" grouprefs="MAINIC">
 <attribute name="VALUE" x="5.08" y="114.3" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="R7" gate="G$1" x="96.52" y="124.46" smashed="yes" grouprefs="MAINIC">
+<instance part="R8" gate="G$1" x="96.52" y="124.46" smashed="yes" grouprefs="MAINIC">
 <attribute name="NAME" x="92.71" y="125.9586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="92.71" y="121.158" size="1.778" layer="96"/>
 </instance>
-<instance part="R8" gate="G$1" x="96.52" y="116.84" smashed="yes" grouprefs="MAINIC">
+<instance part="R9" gate="G$1" x="96.52" y="116.84" smashed="yes" grouprefs="MAINIC">
 <attribute name="NAME" x="92.71" y="118.3386" size="1.778" layer="95"/>
 <attribute name="VALUE" x="92.71" y="113.538" size="1.778" layer="96"/>
 </instance>
-<instance part="R9" gate="G$1" x="96.52" y="109.22" smashed="yes" grouprefs="MAINIC">
+<instance part="R10" gate="G$1" x="96.52" y="109.22" smashed="yes" grouprefs="MAINIC">
 <attribute name="NAME" x="92.71" y="110.7186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="92.71" y="105.918" size="1.778" layer="96"/>
 </instance>
@@ -11721,7 +11768,7 @@ Source: www.kingbright.com</description>
 <instance part="+3V3" gate="G$1" x="88.9" y="129.54" smashed="yes" grouprefs="MAINIC">
 <attribute name="VALUE" x="86.36" y="124.46" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="IC4" gate="1" x="43.18" y="35.56" smashed="yes" grouprefs="USB_CONNECTION">
+<instance part="IC5" gate="1" x="43.18" y="35.56" smashed="yes" grouprefs="USB_CONNECTION">
 <attribute name="NAME" x="33.02" y="62.23" size="1.778" layer="95"/>
 <attribute name="VALUE" x="33.02" y="5.08" size="1.778" layer="96"/>
 </instance>
@@ -11737,26 +11784,26 @@ Source: www.kingbright.com</description>
 <attribute name="NAME" x="73.397140625" y="46.5001" size="1.272109375" layer="95"/>
 <attribute name="VALUE" x="73.65613125" y="22.8503" size="1.27096875" layer="96"/>
 </instance>
-<instance part="R11" gate="G$1" x="88.9" y="167.64" smashed="yes" grouprefs="TESTPOINTS">
-<attribute name="NAME" x="85.09" y="169.1386" size="1.778" layer="95"/>
-<attribute name="VALUE" x="85.09" y="164.338" size="1.778" layer="96"/>
+<instance part="R12" gate="G$1" x="210.82" y="124.46" smashed="yes" grouprefs="TESTPOINTS">
+<attribute name="NAME" x="207.01" y="125.9586" size="1.778" layer="95"/>
+<attribute name="VALUE" x="207.01" y="121.158" size="1.778" layer="96"/>
 </instance>
-<instance part="R10" gate="G$1" x="104.14" y="167.64" smashed="yes" grouprefs="TESTPOINTS">
-<attribute name="NAME" x="100.33" y="169.1386" size="1.778" layer="95"/>
-<attribute name="VALUE" x="100.33" y="164.338" size="1.778" layer="96"/>
+<instance part="R11" gate="G$1" x="226.06" y="124.46" smashed="yes" grouprefs="TESTPOINTS">
+<attribute name="NAME" x="222.25" y="125.9586" size="1.778" layer="95"/>
+<attribute name="VALUE" x="222.25" y="121.158" size="1.778" layer="96"/>
 </instance>
-<instance part="GND6" gate="1" x="111.76" y="162.56" smashed="yes" grouprefs="TESTPOINTS">
-<attribute name="VALUE" x="109.22" y="160.02" size="1.778" layer="96"/>
+<instance part="GND6" gate="1" x="233.68" y="119.38" smashed="yes" grouprefs="TESTPOINTS">
+<attribute name="VALUE" x="231.14" y="116.84" size="1.778" layer="96"/>
 </instance>
-<instance part="TPB+" gate="_1" x="81.28" y="165.1" smashed="yes" rot="R270" grouprefs="TESTPOINTS">
-<attribute name="NAME" x="81.28" y="161.925" size="1.27" layer="95" rot="R270" align="center-left"/>
+<instance part="TPB+" gate="_1" x="203.2" y="121.92" smashed="yes" rot="R270" grouprefs="TESTPOINTS">
+<attribute name="NAME" x="203.2" y="118.745" size="1.27" layer="95" rot="R270" align="center-left"/>
 </instance>
-<instance part="TPB-" gate="_1" x="114.3" y="167.64" smashed="yes" grouprefs="TESTPOINTS">
-<attribute name="NAME" x="117.475" y="167.64" size="1.27" layer="95" align="center-left"/>
+<instance part="TPB-" gate="_1" x="236.22" y="124.46" smashed="yes" grouprefs="TESTPOINTS">
+<attribute name="NAME" x="239.395" y="124.46" size="1.27" layer="95" align="center-left"/>
 </instance>
-<instance part="BT1" gate="G$1" x="86.36" y="142.24" smashed="yes" grouprefs="BAT_HOLDER">
-<attribute name="VALUE" x="81.28" y="144.78" size="1.27" layer="96"/>
-<attribute name="NAME" x="87.63" y="139.7" size="1.27" layer="95"/>
+<instance part="BT1" gate="G$1" x="142.24" y="127" smashed="yes" grouprefs="BAT_HOLDER">
+<attribute name="VALUE" x="137.16" y="129.54" size="1.27" layer="96"/>
+<attribute name="NAME" x="143.51" y="124.46" size="1.27" layer="95"/>
 </instance>
 <instance part="JP1" gate="_1" x="83.82" y="7.62" smashed="yes" grouprefs="USB_CONNECTION">
 <attribute name="NAME" x="86.995" y="7.62" size="1.27" layer="95" align="center-left"/>
@@ -11770,13 +11817,13 @@ Source: www.kingbright.com</description>
 <instance part="JP1" gate="_4" x="83.82" y="15.24" smashed="yes" grouprefs="USB_CONNECTION">
 <attribute name="NAME" x="86.995" y="15.24" size="1.27" layer="95" align="center-left"/>
 </instance>
-<instance part="LED1" gate="G$1" x="162.56" y="93.98" smashed="yes" rot="R90" grouprefs="BAT_CHARGING">
-<attribute name="NAME" x="167.132" y="97.536" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="167.132" y="99.695" size="1.778" layer="96" rot="R180"/>
+<instance part="LED1" gate="G$1" x="220.98" y="91.44" smashed="yes" rot="R90" grouprefs="BAT_CHARGING">
+<attribute name="NAME" x="225.552" y="94.996" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="225.552" y="97.155" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R4" gate="G$1" x="175.26" y="93.98" smashed="yes" grouprefs="BAT_CHARGING">
-<attribute name="NAME" x="171.45" y="95.4786" size="1.778" layer="95"/>
-<attribute name="VALUE" x="171.45" y="90.678" size="1.778" layer="96"/>
+<instance part="R4" gate="G$1" x="233.68" y="91.44" smashed="yes" grouprefs="BAT_CHARGING">
+<attribute name="NAME" x="229.87" y="92.9386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="229.87" y="88.138" size="1.778" layer="96"/>
 </instance>
 <instance part="JP2" gate="_1" x="99.06" y="101.6" smashed="yes" rot="R180" grouprefs="MAINIC">
 <attribute name="NAME" x="95.885" y="101.6" size="1.27" layer="95" rot="R180" align="center-left"/>
@@ -11787,22 +11834,42 @@ Source: www.kingbright.com</description>
 <instance part="JP2" gate="_3" x="99.06" y="96.52" smashed="yes" rot="R180" grouprefs="MAINIC">
 <attribute name="NAME" x="95.885" y="96.52" size="1.27" layer="95" rot="R180" align="center-left"/>
 </instance>
-<instance part="R" gate="G$1" x="96.52" y="86.36" smashed="yes" rot="R270">
-<attribute name="VALUE" x="91.44" y="91.44" size="1.27" layer="96"/>
-<attribute name="NAME" x="91.44" y="83.82" size="1.27" layer="95"/>
+<instance part="R" gate="G$1" x="99.06" y="86.36" smashed="yes" rot="R270" grouprefs="MAINIC">
+<attribute name="VALUE" x="93.98" y="91.44" size="1.27" layer="96"/>
+<attribute name="NAME" x="93.98" y="83.82" size="1.27" layer="95"/>
 </instance>
-<instance part="IC5" gate="G$1" x="27.94" y="165.1" smashed="yes">
-<attribute name="NAME" x="17.78" y="180.34" size="1.778" layer="95" align="top-left"/>
-<attribute name="VALUE" x="17.78" y="149.86" size="1.778" layer="96"/>
+<instance part="IC2" gate="G$1" x="154.94" y="73.66" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="144.78" y="88.9" size="1.778" layer="95" align="top-left"/>
+<attribute name="VALUE" x="144.78" y="58.42" size="1.778" layer="96"/>
 </instance>
-<instance part="UPDI" gate="_1" x="10.16" y="165.1" smashed="yes" rot="R180">
-<attribute name="NAME" x="6.985" y="165.1" size="1.27" layer="95" rot="R180" align="center-left"/>
+<instance part="UPDI" gate="_1" x="134.62" y="73.66" smashed="yes" rot="R180" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="131.445" y="73.66" size="1.27" layer="95" rot="R180" align="center-left"/>
 </instance>
-<instance part="GND5" gate="1" x="7.62" y="149.86" smashed="yes">
-<attribute name="VALUE" x="5.08" y="147.32" size="1.778" layer="96"/>
+<instance part="GND5" gate="1" x="137.16" y="58.42" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="VALUE" x="134.62" y="55.88" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V4" gate="G$1" x="7.62" y="180.34" smashed="yes">
-<attribute name="VALUE" x="5.08" y="175.26" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V4" gate="G$1" x="134.62" y="109.22" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="VALUE" x="132.08" y="104.14" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="L1" gate="_1" x="172.72" y="68.58" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="175.895" y="68.58" size="1.27" layer="95" align="center-left"/>
+</instance>
+<instance part="L1" gate="_2" x="134.62" y="66.04" smashed="yes" rot="R180" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="131.445" y="66.04" size="1.27" layer="95" rot="R180" align="center-left"/>
+</instance>
+<instance part="L2" gate="_1" x="172.72" y="63.5" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="175.895" y="63.5" size="1.27" layer="95" align="center-left"/>
+</instance>
+<instance part="L2" gate="_2" x="134.62" y="68.58" smashed="yes" rot="R180" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="131.445" y="68.58" size="1.27" layer="95" rot="R180" align="center-left"/>
+</instance>
+<instance part="R6" gate="G$1" x="142.24" y="101.6" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="138.43" y="103.0986" size="1.778" layer="95"/>
+<attribute name="VALUE" x="138.43" y="98.298" size="1.778" layer="96"/>
+</instance>
+<instance part="R7" gate="G$1" x="142.24" y="93.98" smashed="yes" grouprefs="LATCH_DETECT">
+<attribute name="NAME" x="138.43" y="95.4786" size="1.778" layer="95"/>
+<attribute name="VALUE" x="138.43" y="90.678" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -11811,36 +11878,36 @@ Source: www.kingbright.com</description>
 <net name="N$1" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="137.16" y1="76.2" x2="137.16" y2="78.74" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="195.58" y1="73.66" x2="195.58" y2="76.2" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<pinref part="IC2" gate="G$1" pin="VCC"/>
-<wire x1="137.16" y1="78.74" x2="137.16" y2="83.82" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<wire x1="137.16" y1="83.82" x2="137.16" y2="86.36" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<wire x1="154.94" y1="83.82" x2="149.86" y2="83.82" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<junction x="137.16" y="83.82" grouprefs="BAT_CHARGING"/>
-<pinref part="IC2" gate="G$1" pin="CE"/>
-<wire x1="149.86" y1="83.82" x2="137.16" y2="83.82" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<wire x1="154.94" y1="78.74" x2="137.16" y2="78.74" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<junction x="137.16" y="78.74" grouprefs="BAT_CHARGING"/>
+<pinref part="IC3" gate="G$1" pin="VCC"/>
+<wire x1="195.58" y1="76.2" x2="195.58" y2="81.28" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="195.58" y1="81.28" x2="195.58" y2="83.82" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="213.36" y1="81.28" x2="208.28" y2="81.28" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<junction x="195.58" y="81.28" grouprefs="BAT_CHARGING"/>
+<pinref part="IC3" gate="G$1" pin="CE"/>
+<wire x1="208.28" y1="81.28" x2="195.58" y2="81.28" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="213.36" y1="76.2" x2="195.58" y2="76.2" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<junction x="195.58" y="76.2" grouprefs="BAT_CHARGING"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="160.02" y1="93.98" x2="149.86" y2="93.98" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<wire x1="149.86" y1="93.98" x2="149.86" y2="83.82" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<junction x="149.86" y="83.82" grouprefs="BAT_CHARGING"/>
+<wire x1="218.44" y1="91.44" x2="208.28" y2="91.44" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="208.28" y1="91.44" x2="208.28" y2="81.28" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<junction x="208.28" y="81.28" grouprefs="BAT_CHARGING"/>
 </segment>
 </net>
 <net name="IN+" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="96.52" x2="137.16" y2="99.06" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="137.16" y="99.06" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
+<wire x1="195.58" y1="93.98" x2="195.58" y2="96.52" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="195.58" y="96.52" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="4"/>
-<wire x1="154.94" y1="129.54" x2="157.48" y2="129.54" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<label x="157.48" y="129.54" size="1.778" layer="95" xref="yes" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="233.68" y1="17.78" x2="236.22" y2="17.78" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<label x="236.22" y="17.78" size="1.778" layer="95" xref="yes" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="1" pin="VCC"/>
+<pinref part="IC5" gate="1" pin="VCC"/>
 <wire x1="30.48" y1="58.42" x2="10.16" y2="58.42" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <label x="7.62" y="58.42" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="USB_CONNECTION"/>
 <pinref part="C1" gate="G$1" pin="1"/>
@@ -11862,19 +11929,19 @@ Source: www.kingbright.com</description>
 <net name="IN-" class="0">
 <segment>
 <pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="68.58" x2="137.16" y2="58.42" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="137.16" y="58.42" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
-</segment>
-<segment>
-<pinref part="IC2" gate="G$1" pin="GND"/>
-<wire x1="185.42" y1="68.58" x2="185.42" y2="58.42" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="185.42" y="58.42" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BAT_CHARGING"/>
-<wire x1="185.42" y1="58.42" x2="193.04" y2="58.42" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="193.04" y1="58.42" x2="193.04" y2="60.96" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="195.58" y1="66.04" x2="195.58" y2="55.88" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="195.58" y="55.88" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="G$1" pin="GND"/>
+<wire x1="243.84" y1="66.04" x2="243.84" y2="55.88" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="243.84" y="55.88" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BAT_CHARGING"/>
+<wire x1="243.84" y1="55.88" x2="251.46" y2="55.88" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="251.46" y1="55.88" x2="251.46" y2="58.42" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+</segment>
+<segment>
+<pinref part="IC4" gate="G$1" pin="GND"/>
 <pinref part="Q1" gate="G$1" pin="S1"/>
 <wire x1="162.56" y1="17.78" x2="167.64" y2="17.78" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 <label x="165.1" y="17.78" size="1.778" layer="95" rot="R270" xref="yes" grouprefs="BAT_PROTECTION"/>
@@ -11891,27 +11958,27 @@ Source: www.kingbright.com</description>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="1"/>
-<wire x1="139.7" y1="129.54" x2="137.16" y2="129.54" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<label x="137.16" y="129.54" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="218.44" y1="17.78" x2="215.9" y2="17.78" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<label x="215.9" y="17.78" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="1" pin="GND@A"/>
+<pinref part="IC5" gate="1" pin="GND@A"/>
 <wire x1="30.48" y1="17.78" x2="12.7" y2="17.78" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="12.7" y1="17.78" x2="10.16" y2="17.78" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="10.16" y1="17.78" x2="10.16" y2="2.54" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="10.16" y1="2.54" x2="60.96" y2="2.54" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="60.96" y1="2.54" x2="60.96" y2="10.16" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
-<pinref part="IC4" gate="1" pin="GND@2"/>
+<pinref part="IC5" gate="1" pin="GND@2"/>
 <wire x1="60.96" y1="10.16" x2="58.42" y2="10.16" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
-<pinref part="IC4" gate="1" pin="GND@1"/>
+<pinref part="IC5" gate="1" pin="GND@1"/>
 <wire x1="58.42" y1="12.7" x2="60.96" y2="12.7" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="60.96" y1="12.7" x2="60.96" y2="10.16" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <junction x="60.96" y="10.16" grouprefs="USB_CONNECTION"/>
-<pinref part="IC4" gate="1" pin="GND"/>
+<pinref part="IC5" gate="1" pin="GND"/>
 <wire x1="58.42" y1="15.24" x2="60.96" y2="15.24" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="60.96" y1="15.24" x2="60.96" y2="12.7" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <junction x="60.96" y="12.7" grouprefs="USB_CONNECTION"/>
-<pinref part="IC4" gate="1" pin="TEST"/>
+<pinref part="IC5" gate="1" pin="TEST"/>
 <wire x1="58.42" y1="20.32" x2="60.96" y2="20.32" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="60.96" y1="20.32" x2="60.96" y2="15.24" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <junction x="60.96" y="15.24" grouprefs="USB_CONNECTION"/>
@@ -11930,8 +11997,8 @@ Source: www.kingbright.com</description>
 </segment>
 <segment>
 <pinref part="BT1" gate="G$1" pin="MINUS"/>
-<wire x1="91.44" y1="142.24" x2="93.98" y2="142.24" width="0.1524" layer="91" grouprefs="BAT_HOLDER"/>
-<label x="93.98" y="142.24" size="1.778" layer="95" xref="yes" grouprefs="BAT_HOLDER"/>
+<wire x1="147.32" y1="127" x2="149.86" y2="127" width="0.1524" layer="91" grouprefs="BAT_HOLDER"/>
+<label x="149.86" y="127" size="1.778" layer="95" xref="yes" grouprefs="BAT_HOLDER"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="_1" pin="1"/>
@@ -11939,24 +12006,24 @@ Source: www.kingbright.com</description>
 <label x="73.66" y="7.62" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="USB_CONNECTION"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="TEMP"/>
-<wire x1="185.42" y1="78.74" x2="187.96" y2="78.74" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="187.96" y="78.74" size="1.778" layer="95" xref="yes"/>
+<pinref part="IC3" gate="G$1" pin="TEMP"/>
+<wire x1="243.84" y1="76.2" x2="246.38" y2="76.2" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="246.38" y="76.2" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="193.04" y1="71.12" x2="193.04" y2="73.66" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<pinref part="IC2" gate="G$1" pin="PROG"/>
-<wire x1="193.04" y1="73.66" x2="185.42" y2="73.66" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="251.46" y1="68.58" x2="251.46" y2="71.12" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<pinref part="IC3" gate="G$1" pin="PROG"/>
+<wire x1="251.46" y1="71.12" x2="243.84" y2="71.12" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
 </segment>
 </net>
 <net name="BAT+" class="0">
 <segment>
-<pinref part="IC2" gate="G$1" pin="BAT"/>
-<wire x1="185.42" y1="83.82" x2="187.96" y2="83.82" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="187.96" y="83.82" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
+<pinref part="IC3" gate="G$1" pin="BAT"/>
+<wire x1="243.84" y1="81.28" x2="246.38" y2="81.28" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="246.38" y="81.28" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
@@ -11969,18 +12036,18 @@ Source: www.kingbright.com</description>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="6"/>
-<wire x1="154.94" y1="139.7" x2="157.48" y2="139.7" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<label x="157.48" y="139.7" size="1.778" layer="95" xref="yes" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="233.68" y1="27.94" x2="236.22" y2="27.94" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<label x="236.22" y="27.94" size="1.778" layer="95" xref="yes" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
 <pinref part="BT1" gate="G$1" pin="PLUS"/>
-<wire x1="81.28" y1="142.24" x2="78.74" y2="142.24" width="0.1524" layer="91" grouprefs="BAT_HOLDER"/>
-<label x="78.74" y="142.24" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BAT_HOLDER"/>
+<wire x1="137.16" y1="127" x2="134.62" y2="127" width="0.1524" layer="91" grouprefs="BAT_HOLDER"/>
+<label x="134.62" y="127" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BAT_HOLDER"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="IC3" gate="G$1" pin="CS"/>
+<pinref part="IC4" gate="G$1" pin="CS"/>
 <wire x1="137.16" y1="22.86" x2="134.62" y2="22.86" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="134.62" y1="22.86" x2="134.62" y2="20.32" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
@@ -11989,7 +12056,7 @@ Source: www.kingbright.com</description>
 <net name="N$4" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="IC3" gate="G$1" pin="VCC"/>
+<pinref part="IC4" gate="G$1" pin="VCC"/>
 <wire x1="127" y1="30.48" x2="127" y2="27.94" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 <wire x1="127" y1="27.94" x2="137.16" y2="27.94" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 <pinref part="C2" gate="G$1" pin="1"/>
@@ -11999,7 +12066,7 @@ Source: www.kingbright.com</description>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="IC3" gate="G$1" pin="OD"/>
+<pinref part="IC4" gate="G$1" pin="OD"/>
 <pinref part="Q1" gate="G$1" pin="G1"/>
 <wire x1="162.56" y1="22.86" x2="167.64" y2="22.86" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 </segment>
@@ -12020,7 +12087,7 @@ Source: www.kingbright.com</description>
 <wire x1="195.58" y1="35.56" x2="195.58" y2="22.86" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 <pinref part="Q1" gate="G$1" pin="G2"/>
 <wire x1="195.58" y1="22.86" x2="193.04" y2="22.86" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
-<pinref part="IC3" gate="G$1" pin="OC"/>
+<pinref part="IC4" gate="G$1" pin="OC"/>
 <wire x1="165.1" y1="27.94" x2="162.56" y2="27.94" width="0.1524" layer="91" grouprefs="BAT_PROTECTION"/>
 </segment>
 </net>
@@ -12038,28 +12105,28 @@ Source: www.kingbright.com</description>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="3"/>
-<wire x1="139.7" y1="139.7" x2="137.16" y2="139.7" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<label x="137.16" y="139.7" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="218.44" y1="27.94" x2="215.9" y2="27.94" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<label x="215.9" y="27.94" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="S1" gate="G$1" pin="2"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="139.7" y1="134.62" x2="137.16" y2="134.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="218.44" y1="22.86" x2="215.9" y2="22.86" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
 <pinref part="VR1" gate="G$1" pin="GND"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="182.88" y1="127" x2="182.88" y2="121.92" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="261.62" y1="15.24" x2="261.62" y2="10.16" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
 <pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="182.88" y1="121.92" x2="182.88" y2="119.38" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<wire x1="170.18" y1="124.46" x2="170.18" y2="121.92" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<wire x1="170.18" y1="121.92" x2="182.88" y2="121.92" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<junction x="182.88" y="121.92" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="261.62" y1="10.16" x2="261.62" y2="7.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="248.92" y1="12.7" x2="248.92" y2="10.16" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="248.92" y1="10.16" x2="261.62" y2="10.16" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<junction x="261.62" y="10.16" grouprefs="VOLTAGEREGULATION"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="195.58" y1="124.46" x2="195.58" y2="121.92" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<wire x1="195.58" y1="121.92" x2="182.88" y2="121.92" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="274.32" y1="12.7" x2="274.32" y2="10.16" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="274.32" y1="10.16" x2="261.62" y2="10.16" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="GND"/>
@@ -12068,63 +12135,71 @@ Source: www.kingbright.com</description>
 <wire x1="7.62" y1="111.76" x2="7.62" y2="109.22" width="0.1524" layer="91" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="91.44" y1="109.22" x2="88.9" y2="109.22" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="88.9" y1="109.22" x2="88.9" y2="86.36" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <pinref part="JP2" gate="_2" pin="1"/>
 <wire x1="88.9" y1="86.36" x2="88.9" y2="83.82" width="0.1524" layer="91" grouprefs="MAINIC"/>
-<wire x1="86.36" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
-<junction x="88.9" y="86.36"/>
+<wire x1="86.36" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91" grouprefs="MAINIC"/>
+<junction x="88.9" y="86.36" grouprefs="MAINIC"/>
 <pinref part="R" gate="G$1" pin="2"/>
-<wire x1="91.44" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="109.22" y1="167.64" x2="111.76" y2="167.64" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="231.14" y1="124.46" x2="233.68" y2="124.46" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="111.76" y1="167.64" x2="111.76" y2="165.1" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<wire x1="233.68" y1="124.46" x2="233.68" y2="121.92" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
 <pinref part="TPB-" gate="_1" pin="1"/>
-<wire x1="114.3" y1="167.64" x2="111.76" y2="167.64" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
-<junction x="111.76" y="167.64" grouprefs="TESTPOINTS"/>
+<wire x1="236.22" y1="124.46" x2="233.68" y2="124.46" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<junction x="233.68" y="124.46" grouprefs="TESTPOINTS"/>
 </segment>
 <segment>
+<pinref part="IC2" gate="G$1" pin="GND"/>
+<pinref part="L1" gate="_2" pin="1"/>
+<wire x1="137.16" y1="63.5" x2="139.7" y2="63.5" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<wire x1="134.62" y1="66.04" x2="137.16" y2="66.04" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<wire x1="137.16" y1="66.04" x2="137.16" y2="63.5" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<pinref part="L2" gate="_2" pin="1"/>
+<wire x1="134.62" y1="68.58" x2="137.16" y2="68.58" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<wire x1="137.16" y1="68.58" x2="137.16" y2="66.04" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<junction x="137.16" y="66.04" grouprefs="LATCH_DETECT"/>
 <pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="7.62" y1="152.4" x2="7.62" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="G$1" pin="GND"/>
-<wire x1="7.62" y1="154.94" x2="12.7" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="63.5" x2="137.16" y2="60.96" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<junction x="137.16" y="63.5" grouprefs="LATCH_DETECT"/>
 </segment>
 </net>
 <net name="SEL+" class="0">
 <segment>
 <pinref part="S1" gate="G$1" pin="5"/>
 <pinref part="VR1" gate="G$1" pin="IN"/>
-<wire x1="154.94" y1="134.62" x2="170.18" y2="134.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="233.68" y1="22.86" x2="248.92" y2="22.86" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
 <pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="170.18" y1="134.62" x2="175.26" y2="134.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<wire x1="170.18" y1="132.08" x2="170.18" y2="134.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<junction x="170.18" y="134.62" grouprefs="VOLTAGEREGULATION"/>
-<label x="170.18" y="134.62" size="1.778" layer="95" rot="R90" xref="yes" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="248.92" y1="22.86" x2="254" y2="22.86" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="248.92" y1="20.32" x2="248.92" y2="22.86" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<junction x="248.92" y="22.86" grouprefs="VOLTAGEREGULATION"/>
+<label x="248.92" y="22.86" size="1.778" layer="95" rot="R90" xref="yes" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="83.82" y1="167.64" x2="81.28" y2="167.64" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
-<label x="78.74" y="167.64" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="TESTPOINTS"/>
+<pinref part="R12" gate="G$1" pin="1"/>
+<wire x1="205.74" y1="124.46" x2="203.2" y2="124.46" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<label x="200.66" y="124.46" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="TESTPOINTS"/>
 <pinref part="TPB+" gate="_1" pin="1"/>
-<wire x1="81.28" y1="167.64" x2="78.74" y2="167.64" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
-<wire x1="81.28" y1="165.1" x2="81.28" y2="167.64" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
-<junction x="81.28" y="167.64" grouprefs="TESTPOINTS"/>
+<wire x1="203.2" y1="124.46" x2="200.66" y2="124.46" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<wire x1="203.2" y1="121.92" x2="203.2" y2="124.46" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<junction x="203.2" y="124.46" grouprefs="TESTPOINTS"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 <pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="195.58" y1="139.7" x2="195.58" y2="134.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="274.32" y1="27.94" x2="274.32" y2="22.86" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
 <pinref part="VR1" gate="G$1" pin="OUT"/>
-<wire x1="195.58" y1="134.62" x2="195.58" y2="132.08" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<wire x1="190.5" y1="134.62" x2="195.58" y2="134.62" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
-<junction x="195.58" y="134.62" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="274.32" y1="22.86" x2="274.32" y2="20.32" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<wire x1="269.24" y1="22.86" x2="274.32" y2="22.86" width="0.1524" layer="91" grouprefs="VOLTAGEREGULATION"/>
+<junction x="274.32" y="22.86" grouprefs="VOLTAGEREGULATION"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VCC"/>
@@ -12133,20 +12208,28 @@ Source: www.kingbright.com</description>
 <wire x1="7.62" y1="114.3" x2="7.62" y2="116.84" width="0.1524" layer="91" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="91.44" y1="116.84" x2="88.9" y2="116.84" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
 <wire x1="88.9" y1="116.84" x2="88.9" y2="124.46" width="0.1524" layer="91" grouprefs="MAINIC"/>
-<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="88.9" y1="124.46" x2="88.9" y2="127" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <wire x1="91.44" y1="124.46" x2="88.9" y2="124.46" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <junction x="88.9" y="124.46" grouprefs="MAINIC"/>
 </segment>
 <segment>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
-<wire x1="7.62" y1="177.8" x2="7.62" y2="175.26" width="0.1524" layer="91"/>
-<pinref part="IC5" gate="G$1" pin="VCC"/>
-<wire x1="7.62" y1="175.26" x2="12.7" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="106.68" x2="134.62" y2="101.6" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<pinref part="IC2" gate="G$1" pin="VCC"/>
+<wire x1="134.62" y1="101.6" x2="134.62" y2="93.98" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<wire x1="134.62" y1="93.98" x2="134.62" y2="83.82" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<wire x1="134.62" y1="83.82" x2="139.7" y2="83.82" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="93.98" x2="134.62" y2="93.98" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<junction x="134.62" y="93.98" grouprefs="LATCH_DETECT"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="101.6" x2="134.62" y2="101.6" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<junction x="134.62" y="101.6" grouprefs="LATCH_DETECT"/>
 </segment>
 </net>
 <net name="RST" class="0">
@@ -12162,13 +12245,13 @@ Source: www.kingbright.com</description>
 </segment>
 <segment>
 <pinref part="R" gate="G$1" pin="1"/>
-<wire x1="101.6" y1="86.36" x2="104.14" y2="86.36" width="0.1524" layer="91"/>
-<label x="104.14" y="86.36" size="1.778" layer="95" xref="yes"/>
+<wire x1="104.14" y1="86.36" x2="106.68" y2="86.36" width="0.1524" layer="91" grouprefs="MAINIC"/>
+<label x="106.68" y="86.36" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="IC5" gate="G$1" pin="PA3"/>
-<wire x1="43.18" y1="165.1" x2="45.72" y2="165.1" width="0.1524" layer="91"/>
-<label x="45.72" y="165.1" size="1.778" layer="95" xref="yes"/>
+<pinref part="IC2" gate="G$1" pin="PA3"/>
+<wire x1="170.18" y1="73.66" x2="172.72" y2="73.66" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<label x="172.72" y="73.66" size="1.778" layer="95" xref="yes" grouprefs="LATCH_DETECT"/>
 </segment>
 </net>
 <net name="BOOT1" class="0">
@@ -12178,7 +12261,7 @@ Source: www.kingbright.com</description>
 <label x="63.5" y="119.38" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R8" gate="G$1" pin="2"/>
+<pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="116.84" x2="104.14" y2="116.84" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <label x="104.14" y="116.84" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
@@ -12190,7 +12273,7 @@ Source: www.kingbright.com</description>
 <label x="63.5" y="99.06" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="109.22" x2="104.14" y2="109.22" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <label x="104.14" y="109.22" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
@@ -12202,7 +12285,7 @@ Source: www.kingbright.com</description>
 <label x="27.94" y="119.38" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="124.46" x2="104.14" y2="124.46" width="0.1524" layer="91" grouprefs="MAINIC"/>
 <label x="104.14" y="124.46" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
@@ -12214,7 +12297,7 @@ Source: www.kingbright.com</description>
 <label x="27.94" y="109.22" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="1" pin="RXD"/>
+<pinref part="IC5" gate="1" pin="RXD"/>
 <wire x1="58.42" y1="55.88" x2="68.58" y2="55.88" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <label x="68.58" y="55.88" size="1.778" layer="95" xref="yes" grouprefs="USB_CONNECTION"/>
 </segment>
@@ -12231,7 +12314,7 @@ Source: www.kingbright.com</description>
 <label x="20.32" y="106.68" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="1" pin="TXD"/>
+<pinref part="IC5" gate="1" pin="TXD"/>
 <wire x1="58.42" y1="58.42" x2="60.96" y2="58.42" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <label x="60.96" y="58.42" size="1.778" layer="95" xref="yes" grouprefs="USB_CONNECTION"/>
 </segment>
@@ -12255,7 +12338,7 @@ Source: www.kingbright.com</description>
 </net>
 <net name="D+" class="0">
 <segment>
-<pinref part="IC4" gate="1" pin="USBDP"/>
+<pinref part="IC5" gate="1" pin="USBDP"/>
 <wire x1="30.48" y1="25.4" x2="27.94" y2="25.4" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <label x="27.94" y="25.4" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="USB_CONNECTION"/>
 </segment>
@@ -12267,7 +12350,7 @@ Source: www.kingbright.com</description>
 </net>
 <net name="D-" class="0">
 <segment>
-<pinref part="IC4" gate="1" pin="USBDM"/>
+<pinref part="IC5" gate="1" pin="USBDM"/>
 <wire x1="30.48" y1="22.86" x2="22.86" y2="22.86" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <label x="22.86" y="22.86" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="USB_CONNECTION"/>
 </segment>
@@ -12277,16 +12360,16 @@ Source: www.kingbright.com</description>
 <label x="99.06" y="40.64" size="1.778" layer="95" xref="yes" grouprefs="USB_CONNECTION"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="VCCIO" class="0">
 <segment>
-<pinref part="IC4" gate="1" pin="3V3OUT"/>
+<pinref part="IC5" gate="1" pin="3V3OUT"/>
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="30.48" y1="30.48" x2="22.86" y2="30.48" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 <wire x1="22.86" y1="30.48" x2="12.7" y2="30.48" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
-<wire x1="22.86" y1="30.48" x2="22.86" y2="55.88" width="0.1524" layer="91"/>
-<junction x="22.86" y="30.48"/>
-<pinref part="IC4" gate="1" pin="VCCIO"/>
-<wire x1="22.86" y1="55.88" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="30.48" x2="22.86" y2="55.88" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
+<junction x="22.86" y="30.48" grouprefs="USB_CONNECTION"/>
+<pinref part="IC5" gate="1" pin="VCCIO"/>
+<wire x1="22.86" y1="55.88" x2="30.48" y2="55.88" width="0.1524" layer="91" grouprefs="USB_CONNECTION"/>
 </segment>
 </net>
 <net name="A0" class="0">
@@ -12296,10 +12379,10 @@ Source: www.kingbright.com</description>
 <label x="22.86" y="116.84" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="R11" gate="G$1" pin="2"/>
-<label x="96.52" y="167.64" size="1.778" layer="95" rot="R90" xref="yes" grouprefs="TESTPOINTS"/>
-<pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="167.64" x2="93.98" y2="167.64" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
+<pinref part="R12" gate="G$1" pin="2"/>
+<label x="218.44" y="124.46" size="1.778" layer="95" rot="R90" xref="yes" grouprefs="TESTPOINTS"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="220.98" y1="124.46" x2="215.9" y2="124.46" width="0.1524" layer="91" grouprefs="TESTPOINTS"/>
 </segment>
 </net>
 <net name="SETUP" class="0">
@@ -12318,7 +12401,7 @@ Source: www.kingbright.com</description>
 <segment>
 <pinref part="LED1" gate="G$1" pin="C"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="167.64" y1="93.98" x2="170.18" y2="93.98" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<wire x1="226.06" y1="91.44" x2="228.6" y2="91.44" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
 </segment>
 </net>
 <net name="CHRG" class="0">
@@ -12329,13 +12412,13 @@ Source: www.kingbright.com</description>
 </segment>
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="93.98" x2="182.88" y2="93.98" width="0.1524" layer="91"/>
-<label x="182.88" y="93.98" size="1.778" layer="95" xref="yes"/>
+<wire x1="238.76" y1="91.44" x2="241.3" y2="91.44" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="241.3" y="91.44" size="1.778" layer="95" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="CHRG"/>
-<wire x1="154.94" y1="73.66" x2="152.4" y2="73.66" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="152.4" y="73.66" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="IC3" gate="G$1" pin="CHRG"/>
+<wire x1="213.36" y1="71.12" x2="210.82" y2="71.12" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="210.82" y="71.12" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 </net>
 <net name="STDBY" class="0">
@@ -12345,40 +12428,64 @@ Source: www.kingbright.com</description>
 <label x="63.5" y="104.14" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="STDBY"/>
-<wire x1="154.94" y1="68.58" x2="152.4" y2="68.58" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
-<label x="152.4" y="68.58" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="IC3" gate="G$1" pin="STDBY"/>
+<wire x1="213.36" y1="66.04" x2="210.82" y2="66.04" width="0.1524" layer="91" grouprefs="BAT_CHARGING"/>
+<label x="210.82" y="66.04" size="1.778" layer="95" rot="R180" xref="yes" grouprefs="BAT_CHARGING"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="UPDI" class="0">
 <segment>
-<pinref part="IC5" gate="G$1" pin="RST/UPDI"/>
+<pinref part="IC2" gate="G$1" pin="RST/UPDI"/>
 <pinref part="UPDI" gate="_1" pin="1"/>
-<wire x1="12.7" y1="165.1" x2="10.16" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="73.66" x2="134.62" y2="73.66" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
 </segment>
 </net>
 <net name="SDA" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="D2"/>
-<wire x1="60.96" y1="116.84" x2="68.58" y2="116.84" width="0.1524" layer="91"/>
-<label x="68.58" y="116.84" size="1.778" layer="95" xref="yes"/>
+<wire x1="60.96" y1="116.84" x2="71.12" y2="116.84" width="0.1524" layer="91" grouprefs="MAINIC"/>
+<label x="71.12" y="116.84" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="IC5" gate="G$1" pin="PA1"/>
-<wire x1="43.18" y1="175.26" x2="45.72" y2="175.26" width="0.1524" layer="91"/>
-<label x="45.72" y="175.26" size="1.778" layer="95" xref="yes"/>
+<pinref part="IC2" gate="G$1" pin="PA1"/>
+<wire x1="170.18" y1="83.82" x2="172.72" y2="83.82" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<label x="172.72" y="83.82" size="1.778" layer="95" xref="yes" grouprefs="LATCH_DETECT"/>
+</segment>
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="147.32" y1="101.6" x2="149.86" y2="101.6" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<label x="149.86" y="101.6" size="1.778" layer="95" xref="yes" grouprefs="LATCH_DETECT"/>
 </segment>
 </net>
 <net name="SCL" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="D1"/>
-<wire x1="60.96" y1="114.3" x2="63.5" y2="114.3" width="0.1524" layer="91"/>
-<label x="63.5" y="114.3" size="1.778" layer="95" xref="yes"/>
+<wire x1="60.96" y1="114.3" x2="66.04" y2="114.3" width="0.1524" layer="91" grouprefs="MAINIC"/>
+<label x="66.04" y="114.3" size="1.778" layer="95" xref="yes" grouprefs="MAINIC"/>
 </segment>
 <segment>
-<pinref part="IC5" gate="G$1" pin="PA2"/>
-<wire x1="43.18" y1="170.18" x2="45.72" y2="170.18" width="0.1524" layer="91"/>
-<label x="45.72" y="170.18" size="1.778" layer="95" xref="yes"/>
+<pinref part="IC2" gate="G$1" pin="PA2"/>
+<wire x1="170.18" y1="78.74" x2="172.72" y2="78.74" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<label x="172.72" y="78.74" size="1.778" layer="95" xref="yes" grouprefs="LATCH_DETECT"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="147.32" y1="93.98" x2="149.86" y2="93.98" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+<label x="149.86" y="93.98" size="1.778" layer="95" xref="yes" grouprefs="LATCH_DETECT"/>
+</segment>
+</net>
+<net name="L1" class="0">
+<segment>
+<pinref part="L1" gate="_1" pin="1"/>
+<pinref part="IC2" gate="G$1" pin="PA6"/>
+<wire x1="172.72" y1="68.58" x2="170.18" y2="68.58" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
+</segment>
+</net>
+<net name="L2" class="0">
+<segment>
+<pinref part="L2" gate="_1" pin="1"/>
+<pinref part="IC2" gate="G$1" pin="PA7"/>
+<wire x1="172.72" y1="63.5" x2="170.18" y2="63.5" width="0.1524" layer="91" grouprefs="LATCH_DETECT"/>
 </segment>
 </net>
 </nets>

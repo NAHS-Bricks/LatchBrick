@@ -1,21 +1,19 @@
 [Eagle]
 Version="09 06 02"
-Platform="Windows"
+Platform="Linux"
 Globals="Globals"
 Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="C:/Users/Nils Ostrowski/workspace/EagleLib/no_atmel.lbr"
-UsedLibrary="C:/Users/Nils Ostrowski/workspace/EagleLib/no_expressif.lbr"
-UsedLibrary="C:/Users/Nils Ostrowski/workspace/EagleLib/no_microchip.lbr"
+UsedLibrary="/home/nijo/avr-projekte/EagleLib/no_pinhd.lbr"
 
 [Win_1]
 Type="Board Editor"
 Number=2
 File="v1.0_r1.brd"
-View="9.60968 -0.753141 57.4791 74.719"
-WireWidths=" 0.0762 0.1016 0.127 0.15 0.2 0.2032 0.254 0.3048 0.4064 0.508 0.6096 0.8128 1.016 1.27 2.54 0.1524"
+View="6.43682 -2.49752 54.3063 72.9748"
+WireWidths=" 0.0762 0.1016 0.127 0.15 0.2 0.2032 0.3048 0.508 0.6096 0.8128 1.016 1.27 2.54 0.1524 0.4064 0.254"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.65 0.7 0.75 0.8 0.85 0.9 1 0.6"
 ViaDiameters=" 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.3 0"
@@ -58,7 +56,7 @@ Layer=1
 Type="Schematic Editor"
 Number=1
 File="v1.0_r1.sch"
-View="14.1594 97.2612 139.513 206.423"
+View="-5.7404 -2.794 292.76 142.494"
 WireWidths=" 0.0762 0.1016 0.127 0.15 0.2 0.2032 0.254 0.3048 0.4064 0.508 0.6096 0.8128 1.016 1.27 2.54 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.65 0.7 0.75 0.8 0.85 0.9 1 0.6"
@@ -74,7 +72,7 @@ DimensionExtWidths=" 0.127 0.254 0.1 0.13 0.26 0"
 DimensionExtLengths=" 1.27 2.54 1 2 3 0"
 DimensionExtOffsets=" 1.27 2.54 1 2 3 0"
 SmdSizes=" 0.3048 0.1524 0.4064 0.2032 0.6096 0.3048 0.8128 0.4064 1.016 0.508 1.27 0.6604 1.4224 0.7112 1.6764 0.8128 1.778 0.9144 1.9304 0.9652 2.1844 1.0668 2.54 1.27 3.81 1.9304 5.08 2.54 6.4516 3.2512 1.27 0.635"
-WireBend=4
+WireBend=0
 WireBendSet=31
 WireCap=1
 MiterStyle=1
@@ -96,8 +94,8 @@ SwapLevel=0
 ArcDirection=0
 AddLevel=2
 PadsSameType=0
-Layer=91
-Views=" 1: 14.1594 97.2612 139.513 206.423"
+Layer=97
+Views=" 1: -5.7404 -2.794 292.76 142.494"
 Sheet="1"
 
 [Win_3]
@@ -105,7 +103,7 @@ Type="Control Panel"
 Number=0
 
 [Desktop]
-Screen="3840 1080"
+Screen="1920 1080"
 Window="Win_1"
 Window="Win_2"
 Window="Win_3"
