@@ -1,2 +1,5 @@
 eagle*/*.s#*
 eagle*/*.b#*
+*.zip
+/mplab/NAHS-LatchBrick_v1.0.X/build/
+/mplab/NAHS-LatchBrick_v1.0.X/dist/
