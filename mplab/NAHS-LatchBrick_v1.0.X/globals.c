@@ -1,6 +1,9 @@
 #include "globals.h"
 
+uint8_t latch_pins[LATCH_COUNT] = {PIN6_bp, PIN7_bp};
+volatile uint8_t state_queue[QUEUE_LENGTH][LATCH_COUNT] = {0};
 uint8_t queue_write_pos = 0;
+volatile uint8_t falling_edge_trigger, rising_edge_trigger, falling_bump_trigger, rising_bump_trigger = 0;
 
 void shift_queue() {
     if(queue_write_pos == 0) return;

@@ -26,12 +26,13 @@ LOCKBITS = {
 
 
 #include <util/delay.h>
+#include <avr/interrupt.h>
+#include <stdbool.h>
 #include "i2c.h"
 #include "pinfun.h"
+#include "latch.h"
 #include "globals.h"
-/*
- * 
- */
+
 int main() {
     // ----------------------------
     // Initialization
@@ -47,24 +48,26 @@ int main() {
     _delay_ms(10);  // wait a bit to let clock settle down
     
     // Setup Latch-Pins
-    pin_set_input_pullup(LATCH1_PIN);
-    pin_set_input_pullup(LATCH2_PIN);
-    pin_int_enable_bothedges(LATCH1_PIN);
-    pin_int_enable_bothedges(LATCH2_PIN);
-    // TODO: interrupts
+    for(uint8_t i = 0; i < LATCH_COUNT; i++) {
+        pin_set_input_pullup(latch_pins[i]);
+        pin_int_enable_bothedges(latch_pins[i]);
+    }
     
     i2c_init();
     
-    //Release MainIC to let ist Startup
+    // Enable Interrupts
+    sei();
+    
+    //Release MainIC to let it Startup
     pin_set_input_hiz(MAINIC_RST_PIN);
     
     // ----------------------------
     // Normal Operation Loop
     // ----------------------------
     while(1) {
-        _delay_ms(100);
+        _delay_ms(50);
+        latch_interrupt();
     }
 
     return(0);
 }
-
