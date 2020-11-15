@@ -11,8 +11,11 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
-void latch_interrupt();
+    
+#include <stdbool.h>
+    
+extern volatile bool latch_interrupt;
+void latch_interrupt_handler(bool default_increase_write_pos);
 
 
 #ifdef	__cplusplus

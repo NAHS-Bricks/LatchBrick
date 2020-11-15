@@ -27,6 +27,7 @@ LOCKBITS = {
 
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/sleep.h>
 #include <stdbool.h>
 #include "i2c.h"
 #include "pinfun.h"
@@ -65,8 +66,33 @@ int main() {
     // Normal Operation Loop
     // ----------------------------
     while(1) {
-        _delay_ms(50);
-        latch_interrupt();
+        cli();
+        if(latch_interrupt) {
+            sei();
+            _delay_ms(20);
+            latch_interrupt_handler(false);
+        }
+        if(transaction_started) {
+            sei();
+            if(queue_write_pos == 0) {
+                latch_interrupt_handler(true);
+            }
+            transaction_started = false;
+            mainic_finished = false;
+        }
+        if(mainic_finished && queue_write_pos != 0) {
+            sei();
+            //Reset MainIC
+            pin_set_output(MAINIC_RST_PIN);
+            pin_set_output_low(MAINIC_RST_PIN);
+            _delay_ms(10);
+            pin_set_input_hiz(MAINIC_RST_PIN);
+        }
+        // go to powerdown
+        set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+        sleep_enable();
+        sei();
+        sleep_cpu();
     }
 
     return(0);

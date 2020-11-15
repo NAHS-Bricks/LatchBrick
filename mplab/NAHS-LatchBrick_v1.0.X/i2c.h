@@ -11,6 +11,8 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+    
+#include <stdbool.h>
 
 // I2C address space:
 // 0100 XXXr is reserved for video encoders, GPIO expanders, should be applicable fro most cases
@@ -20,6 +22,8 @@ extern "C" {
 #define MAX_TRANSACTION 9		// maximum number of bytes sent/received in single transaction
 
 void i2c_init(void);	// initialize I2C slave
+extern volatile bool transaction_started;
+extern volatile bool mainic_finished;
 
 #ifdef	__cplusplus
 }
