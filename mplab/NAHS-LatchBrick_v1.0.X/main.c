@@ -72,12 +72,12 @@ int main() {
             _delay_ms(20);
             latch_interrupt_handler(false);
         }
-        if(transaction_started) {
+        if(conversion_started) {
             sei();
             if(queue_write_pos == 0) {
                 latch_interrupt_handler(true);
             }
-            transaction_started = false;
+            conversion_started = false;
             mainic_finished = false;
         }
         if(mainic_finished && queue_write_pos != 0) {

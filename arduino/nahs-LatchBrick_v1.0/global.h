@@ -5,6 +5,7 @@
 
 class configData;
 class runtimeData;
+class coic;
 
 #define SETUP_PIN D5
 #define BAT_CHRG_PIN D6
@@ -26,6 +27,7 @@ extern const float version_numbers[NUMBER_OF_VERSIONS];
 extern const String features[NUMBER_OF_FEATURES];
 extern configData *cfgdat;
 extern runtimeData *rundat;
+extern coic *latches;
 
 float readBatVoltage();
 

@@ -22,7 +22,7 @@ extern "C" {
 #define MAX_TRANSACTION 9		// maximum number of bytes sent/received in single transaction
 
 void i2c_init(void);	// initialize I2C slave
-extern volatile bool transaction_started;
+extern volatile bool conversion_started;
 extern volatile bool mainic_finished;
 
 #ifdef	__cplusplus

@@ -3,6 +3,7 @@
 #include <ESP8266HTTPClient.h>
 #include "configData.h"
 #include "runtimeData.h"
+#include "coic.h"
 #include "brickSetup.h"
 #include <ArduinoJson.h>
 
@@ -21,11 +22,14 @@ void setup() {
   cfgdat = new configData();
   WiFi.begin(cfgdat->wifissid.c_str(), cfgdat->wifipass.c_str());  // Connecting to WiFi can be done in background as it consumes a lot of time
   rundat = new runtimeData();
+  latches = new coic();
+  latches->start_conversion();  // can also be done in background as it consumes some time
 
 
   //------------------------------------------
   // prepare json document to transmit
   DynamicJsonDocument json(1024);
+  JsonArray l_array = json.createNestedArray("l");
   JsonArray y_array = json.createNestedArray("y");
 
 
@@ -78,6 +82,15 @@ void setup() {
 
 
   //------------------------------------------
+  // pull latch-states from coic
+  while(!latches->ready_to_send_states()) delay(10);  // wait for the conversion to be completed
+  latches->get_states(); // TODO: do something with this
+  for (uint8_t latch = 0; latch < latches->latch_count; latch++) {
+    l_array.add(latches->latch_state[latch]);
+  }
+
+
+  //------------------------------------------
   // wait for wifi and submit data
   while (WiFi.status() != WL_CONNECTED) {
     delay(50);
@@ -121,6 +134,11 @@ void setup() {
   //------------------------------------------
   // write runtimeData
   rundat->write();
+
+
+  //------------------------------------------
+  // inform coic that all data preocessing is done
+  latches->stop_conversion();
 
 
   //------------------------------------------

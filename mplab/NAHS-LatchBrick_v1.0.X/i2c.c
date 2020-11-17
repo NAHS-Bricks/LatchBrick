@@ -7,12 +7,12 @@
 
 volatile uint8_t i2c_data;				// data byte sent by slave or received from master
 												// defined in main program
-uint8_t timeout_cnt;							// 1ms timeout tick counter
+//uint8_t timeout_cnt;							// 1ms timeout tick counter
 bool cmd_received = false;
 uint8_t cmd = 0;
 uint8_t next_latch_to_send = 0;
 volatile bool mainic_finished = false;
-volatile bool transaction_started = false;
+volatile bool conversion_started = false;
 
 
 // timeout is handled by 1 millisecond RTC PIT interrupt as follows:
@@ -111,9 +111,9 @@ ISR(TWI0_TWIS_vect)
 		TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK 
 
 		if (TWI0.SSTATUS & TWI_DIR_bm) {						// Master wishes to read from slave (else return and wait for data from master)
-			timeout_cnt = 0;									// reset timeout counter, will be incremented by ms tick interrupt
+//			timeout_cnt = 0;									// reset timeout counter, will be incremented by ms tick interrupt
 			while (!(TWI0.SSTATUS & TWI_CLKHOLD_bm)) {			// wait until Clock Hold flag set
-				if (timeout_cnt > 2) return;					// return if timeout error
+//				if (timeout_cnt > 2) return;					// return if timeout error
 			}
             if(cmd_received) {
                 if(cmd == 1) {
@@ -133,9 +133,9 @@ ISR(TWI0_TWIS_vect)
 
 		if (TWI0.SSTATUS & TWI_DIR_bm) {						// Master wishes to read from slave
 			if (!(TWI0.SSTATUS & TWI_RXACK_bm)) {				// Received ACK from master
-				timeout_cnt = 0;								// reset timeout counter, will be incremented by ms tick interrupt
+//				timeout_cnt = 0;								// reset timeout counter, will be incremented by ms tick interrupt
 				while (!(TWI0.SSTATUS & TWI_CLKHOLD_bm)) {		// wait until Clock Hold flag set
-					if (timeout_cnt > 2) return;				// return if timeout error
+//					if (timeout_cnt > 2) return;				// return if timeout error
 				}
 				TWI0.SDATA = i2c_data;							// Master read operation
 				TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;							
@@ -151,7 +151,6 @@ ISR(TWI0_TWIS_vect)
                 switch(cmd) {  // prepare outgoing data
                     case 0:
                         i2c_data = LATCH_COUNT;
-                        transaction_started = true;
                         break;
                     case 1:
                         next_latch_to_send = 0;
@@ -172,6 +171,13 @@ ISR(TWI0_TWIS_vect)
                         break;
                     case 6:
                         i2c_data = rising_bump_trigger;
+                        break;
+                    case 11:
+                        i2c_data = queue_write_pos;
+                        break;
+                    case 12:
+                        conversion_started = true;
+                        cmd_received = false;
                         break;
                 }
                 TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc; // send ACK
