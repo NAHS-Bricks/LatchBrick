@@ -125,7 +125,7 @@ ISR(TWI0_TWIS_vect)
                     cmd_received = false;
                 }
             } else TWI0.SDATA = 0;
-			TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;										
+			TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;
 		}
 		return;
 	}

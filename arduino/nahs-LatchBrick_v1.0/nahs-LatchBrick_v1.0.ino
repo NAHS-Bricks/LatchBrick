@@ -20,6 +20,8 @@ void setup() {
   //------------------------------------------
   //Here the normal Operation begins...
   cfgdat = new configData();
+  WiFi.forceSleepWake();  // Enable WiFi Radio
+  delay(1);
   WiFi.begin(cfgdat->wifissid.c_str(), cfgdat->wifipass.c_str());  // Connecting to WiFi can be done in background as it consumes a lot of time
   rundat = new runtimeData();
   latches = new coic();
@@ -84,7 +86,7 @@ void setup() {
   //------------------------------------------
   // pull latch-states from coic
   while(!latches->ready_to_send_states()) delay(10);  // wait for the conversion to be completed
-  latches->get_states(); // TODO: do something with this
+  latches->get_states();
   for (uint8_t latch = 0; latch < latches->latch_count; latch++) {
     l_array.add(latches->latch_state[latch]);
   }
@@ -106,11 +108,26 @@ void setup() {
   DynamicJsonDocument feedback(1024);
   deserializeJson(feedback, http.getStream());
   http.end();
+  // Switch WiFi Radio completely off, as it is not required anymore and just consumes power
+  WiFi.mode(WIFI_OFF);
+  WiFi.forceSleepBegin();
+  delay(1);
 
 
   //------------------------------------------
   // process feedback from BrickServer
   if (feedback.containsKey("d")) rundat->vars.deepSleepDelay = feedback["d"].as<uint16_t>();
+  if (feedback.containsKey("t")) {
+    JsonArray t_array = feedback["t"].as<JsonArray>();
+    if (t_array.size() == latches->latch_count) {
+      latches->clear_all_triggers();
+      for (uint8_t latch = 0; latch < latches->latch_count; ++latch) {
+        for (JsonVariant trigger : t_array[latch].as<JsonArray>()) {
+          latches->set_trigger(latch, trigger.as<uint8_t>());
+        }
+      }
+    }
+  }
   if (feedback.containsKey("r")) {
     for (JsonVariant value : feedback["r"].as<JsonArray>()) {
       switch(value.as<uint8_t>()) {
@@ -137,13 +154,13 @@ void setup() {
 
 
   //------------------------------------------
-  // inform coic that all data preocessing is done
+  // inform coic that all data processing is done
   latches->stop_conversion();
 
 
   //------------------------------------------
   // go to deepsleep
-  ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6);
+  ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6, WAKE_RF_DISABLED);
 }
 
 void loop() {

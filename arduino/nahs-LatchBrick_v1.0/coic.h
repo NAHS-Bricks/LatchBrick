@@ -5,7 +5,7 @@
 
 class coic {
   private:
-    static const uint8_t ADDR = 8;
+    static const uint8_t ADDR = 16;
     static const uint8_t MAX_LATCHES = 8;
     const struct {
       uint8_t GET_LATCH_COUNT           =   0;
@@ -40,6 +40,8 @@ class coic {
     void set_all_triggers(uint8_t latch);
     void clear_trigger(uint8_t latch, uint8_t trigger_id);
     void clear_all_triggers(uint8_t latch);
+    void clear_all_triggers();
+    void findAddr();
 };
 
 #endif // COIC_H 

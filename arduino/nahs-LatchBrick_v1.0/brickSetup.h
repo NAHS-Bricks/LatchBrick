@@ -22,6 +22,7 @@ class brickSetup {
       void connectBrickServer();
       void calibrateADC();
       void inspectRuntimeData();
+      void testCoIC();
 };
 
 #endif // BRICK_SETUP_H

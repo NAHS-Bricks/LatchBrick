@@ -3,6 +3,7 @@
 
 coic::coic() {
   Wire.begin();
+  Wire.setClock(100000);
   latch_count = get_latch_count();
 }
 
@@ -65,11 +66,15 @@ void coic::clear_all_triggers(uint8_t latch) {
   for(uint8_t trigger_id = 0; trigger_id < 4; trigger_id++) clear_trigger(latch, trigger_id);
 }
 
+void coic::clear_all_triggers() {
+  for(uint8_t trigger_id = 0; trigger_id < 4; trigger_id++) set_data(CMD.SET_FALLING_EDGE_TRIGGERS + trigger_id, 0x00);
+}
+
 uint8_t coic::get_data(uint8_t cmd) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
   Wire.endTransmission();
-  
+
   Wire.requestFrom(ADDR, (uint8_t) 1);
   uint8_t result = 0;
   while(Wire.available()) {
@@ -86,4 +91,18 @@ void coic::set_data(uint8_t cmd, uint8_t date) {
   Wire.beginTransmission(ADDR);
   Wire.write(date);
   Wire.endTransmission();
+}
+
+void coic::findAddr() {
+  for(uint8_t i = 44; i < 92; ++i) {
+    Serial.print("start ");
+    Serial.print(i);
+    Serial.print(" ");
+
+    Wire.requestFrom(i, (uint8_t) 1);
+    uint8_t result = 0;
+    result = Wire.read();
+    Serial.print(result);
+    Serial.println(" end");
+  }
 }

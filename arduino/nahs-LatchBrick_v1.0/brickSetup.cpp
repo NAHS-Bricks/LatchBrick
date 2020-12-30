@@ -1,6 +1,7 @@
 #include <ESP8266WiFi.h>
 #include "brickSetup.h"
 #include "runtimeData.h"
+#include "coic.h"
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
@@ -47,6 +48,9 @@ void brickSetup::enter() {
         break;
       case 9:
         inspectRuntimeData();
+        break;
+      case 10:
+        testCoIC();
         break;
       default:
         showMenu();
@@ -100,6 +104,7 @@ void brickSetup::showMenu() {
   Serial.println(" 7) Connect to BrickServer");
   Serial.println(" 8) Calibrate ADC");
   Serial.println(" 9) Inspect RuntimeData");
+  Serial.println("10) Test CoIC");
 }
 
 
@@ -303,4 +308,14 @@ void brickSetup::inspectRuntimeData() {
   Serial.println(rundat->vars.adc5V);
   
   //latch
+}
+
+//------------------------------------------
+// testCoIC
+void brickSetup::testCoIC() {
+  Serial.print("Connecting...");
+  latches = new coic();
+  Serial.println("done");
+  Serial.println(latches->latch_count);
+  latches->findAddr();
 }

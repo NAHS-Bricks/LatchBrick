@@ -18,7 +18,7 @@ extern "C" {
 // 0100 XXXr is reserved for video encoders, GPIO expanders, should be applicable fro most cases
 // 1010 XXXr memory, real-time clock
 
-#define SLAVE_ADDRESS	8		// 8 bit address, i.e. bit 0 = 0, will be substituted by R/W bit
+#define SLAVE_ADDRESS	90		// 8 bit address, i.e. bit 0 = 0, will be substituted by R/W bit
 #define MAX_TRANSACTION 9		// maximum number of bytes sent/received in single transaction
 
 void i2c_init(void);	// initialize I2C slave
