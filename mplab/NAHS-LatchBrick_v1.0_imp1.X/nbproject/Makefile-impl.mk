@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=NAHS-LatchBrick_v1.0.X
+PROJECTNAME=NAHS-LatchBrick_v1.0_imp1.X
 
 # Active Configuration
 DEFAULTCONF=default

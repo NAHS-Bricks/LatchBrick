@@ -3,7 +3,7 @@
 
 coic::coic() {
   Wire.begin();
-  Wire.setClock(100000);
+  //Wire.setClock(100000);
   latch_count = get_latch_count();
 }
 
@@ -22,6 +22,7 @@ void coic::get_states() {
     latch_state[latch] = Wire.read();
     latch++;
   }
+  Wire.endTransmission();
 }
 
 bool coic::ready_to_send_states() {
@@ -80,6 +81,7 @@ uint8_t coic::get_data(uint8_t cmd) {
   while(Wire.available()) {
     result = Wire.read();
   }
+  Wire.endTransmission();
   return result;
 }
 
@@ -94,15 +96,30 @@ void coic::set_data(uint8_t cmd, uint8_t date) {
 }
 
 void coic::findAddr() {
-  for(uint8_t i = 44; i < 92; ++i) {
-    Serial.print("start ");
-    Serial.print(i);
-    Serial.print(" ");
+  uint8_t result = 0;
+  
+  Serial.print("Get Triggers");
+  result = get_data(CMD.GET_FALLING_EDGE_TRIGGERS);
+  Serial.println(result, BIN);
+  
+  Serial.println("Set Latch 0");
+  set_trigger(0, 0);
 
-    Wire.requestFrom(i, (uint8_t) 1);
-    uint8_t result = 0;
-    result = Wire.read();
-    Serial.print(result);
-    Serial.println(" end");
-  }
+  Serial.print("Get Triggers");
+  result = get_data(CMD.GET_FALLING_EDGE_TRIGGERS);
+  Serial.println(result, BIN);
+  
+  Serial.println("Set Latch 1");
+  set_trigger(1, 0);
+
+  Serial.print("Get Triggers");
+  result = get_data(CMD.GET_FALLING_EDGE_TRIGGERS);
+  Serial.println(result, BIN);
+
+  Serial.println("Clear Triggers");
+  clear_all_triggers();
+
+  Serial.print("Get Triggers");
+  result = get_data(CMD.GET_FALLING_EDGE_TRIGGERS);
+  Serial.println(result, BIN);
 }

@@ -5,7 +5,7 @@
 
 class coic {
   private:
-    static const uint8_t ADDR = 16;
+    static const uint8_t ADDR = 45;
     static const uint8_t MAX_LATCHES = 8;
     const struct {
       uint8_t GET_LATCH_COUNT           =   0;

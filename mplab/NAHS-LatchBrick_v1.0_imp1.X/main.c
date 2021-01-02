@@ -69,13 +69,13 @@ int main() {
         cli();
         if(latch_interrupt) {
             sei();
-            _delay_ms(20);
-            latch_interrupt_handler(false);
+            _delay_ms(10);
+            //latch_interrupt_handler(false);
         }
         if(conversion_started) {
             sei();
             if(queue_write_pos == 0) {
-                latch_interrupt_handler(true);
+                //latch_interrupt_handler(true);
             }
             conversion_started = false;
             mainic_finished = false;
@@ -88,10 +88,11 @@ int main() {
             _delay_ms(10);
             pin_set_input_hiz(MAINIC_RST_PIN);
         }
+        sei();
+        _delay_ms(10);
         // go to powerdown
         set_sleep_mode(SLEEP_MODE_PWR_DOWN);
         sleep_enable();
-        sei();
         sleep_cpu();
     }
 
