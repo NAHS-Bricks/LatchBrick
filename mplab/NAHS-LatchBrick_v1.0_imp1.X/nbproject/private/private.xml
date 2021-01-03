@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/nijo/workspace/nahs-LatchBrick/mplab/NAHS-LatchBrick_v1.0.X/i2c.c</file>
-            <file>file:/home/nijo/workspace/nahs-LatchBrick/mplab/NAHS-LatchBrick_v1.0.X/globals.h</file>
-            <file>file:/home/nijo/workspace/nahs-LatchBrick/mplab/NAHS-LatchBrick_v1.0.X/main.c</file>
-            <file>file:/home/nijo/workspace/nahs-LatchBrick/mplab/NAHS-LatchBrick_v1.0.X/i2c.h</file>
+            <file>file:/home/nijo/workspace/nahs-LatchBrick/mplab/NAHS-LatchBrick_v1.0_imp1.X/globals.c</file>
+            <file>file:/home/nijo/workspace/nahs-LatchBrick/mplab/NAHS-LatchBrick_v1.0_imp1.X/globals.h</file>
         </group>
     </open-files>
 </project-private>
