@@ -15,13 +15,13 @@ extern "C" {
     
     #include <avr/io.h>
 
+    #define LATCH_COUNT                 2
+    #define STATE_QUEUE_MAX_LENGTH      6
+    
     #define SDA_PIN                     PIN1_bp
     #define SCL_PIN                     PIN2_bp
     #define MAINIC_RST_PIN              PIN3_bp
     const static uint8_t latch_pins[LATCH_COUNT];
-
-    #define LATCH_COUNT                 2
-    #define STATE_QUEUE_MAX_LENGTH      6
 
     #define STATE_LOW_LEVEL             0
     #define STATE_HIGH_LEVEL            1
@@ -39,9 +39,11 @@ extern "C" {
     #define CMD_LATCH_COUNT             6
     #define CMD_OLDEST_STATE            7
 
-    #define CONVERSION_ENDED            0
-    #define CONVERSION_STARTED          1
+    #define CONVERSION_END              0
+    #define CONVERSION_START            1
     #define CONVERSION_COMPLETED        2
+    #define CONVERSION_FINISHED         3
+    #define CONVERSION_RESET_TRIGGERED  4
 
     extern volatile uint8_t state_queue[STATE_QUEUE_MAX_LENGTH][LATCH_COUNT];
     extern volatile uint8_t g_data[6];  // Contains the following data:

@@ -316,6 +316,5 @@ void brickSetup::testCoIC() {
   Serial.print("Connecting...");
   latches = new coic();
   Serial.println("done");
-  Serial.println(latches->latch_count);
-  latches->findAddr();
+  latches->testing();
 }
