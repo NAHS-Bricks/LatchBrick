@@ -138,7 +138,8 @@ ISR(TWI0_TWIS_vect)
     // APIF && AP - valid address has been received
     if ((TWI0.SSTATUS & TWI_APIF_bm) && (TWI0.SSTATUS & TWI_AP_bm)) {
         i2c_interaction_running = true;
-		TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
+        TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
+        if (!(TWI0.SSTATUS & TWI_DIR_bm)) return;  // Master wishes to write -- return and wait for payload
     }
     
     // DIF - Data Interrupt Flag - slave byte transmit or receive completed
@@ -187,7 +188,7 @@ ISR(TWI0_TWIS_vect)
     // Master wishes to write to slave
     else {
         // No command received yet, so this write should be a command
-        if(received_cmd == -1) {
+        if(received_cmd < 0) {
             received_cmd = TWI0.SDATA;
         }
         

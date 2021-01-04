@@ -66,7 +66,6 @@ int main() {
     // Normal Operation Loop
     // ----------------------------
     while(1) {
-        cli();
         switch(g_data[CONVERSION_STATE]) {
             case CONVERSION_END:
                 state_queue_decrease();
@@ -83,8 +82,7 @@ int main() {
                 }
                 break;
         }
-        sei();
-        
+                
         // wait for i2c interaction to finish.
         bool go_sleep = true;
         while(i2c_interaction_running) {

@@ -64,7 +64,12 @@ void coic::clear_all_triggers(uint8_t latch) {
 }
 
 void coic::clear_all_triggers() {
-  for(uint8_t trigger_id = 0; trigger_id < 4; trigger_id++) set_data(CMD.FALLING_EDGE_TRIGGER + trigger_id, 0x00);
+  Wire.beginTransmission(ADDR);
+  for(uint8_t trigger_id = 0; trigger_id < 4; trigger_id++) {
+    Wire.write(CMD.FALLING_EDGE_TRIGGER + trigger_id);
+    Wire.write(0x00);
+  }
+  Wire.endTransmission();
 }
 
 uint8_t coic::get_data(uint8_t cmd) {
@@ -84,19 +89,12 @@ uint8_t coic::get_data(uint8_t cmd) {
 void coic::set_data(uint8_t cmd, uint8_t date) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
-  Wire.endTransmission();
-
-  Wire.beginTransmission(ADDR);
   Wire.write(date);
   Wire.endTransmission();
 }
 
 void coic::testing() {
   uint8_t result = 0;
-
-  Serial.println("Conversion State:");
-  Serial.println(get_data(CMD.CONVERSION_STATE));
-  Serial.println();
 
   Serial.println("State Queue Length:");
   Serial.println(get_data(CMD.STATE_QUEUE_LENGTH));
@@ -105,31 +103,49 @@ void coic::testing() {
   Serial.println("Latch Count:");
   Serial.println(get_data(CMD.LATCH_COUNT));
   Serial.println();
+
+  Serial.println("Conversion State:");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
+
+  Serial.println("Start Conversion...");
+  start_conversion();
+  Serial.println("Conversion State:");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
+
+  Serial.println("Stop Conversion...");
+  stop_conversion();
+  Serial.println("Conversion State:");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
   
-  Serial.println("Get Triggers:");
-  Serial.println(get_data(CMD.FALLING_EDGE_TRIGGER), BIN);
+  Serial.println("Get Rising Triggers:");
+  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
   Serial.println();
   
   Serial.println("Set Latch 0");
-  set_data(CMD.FALLING_EDGE_TRIGGER, 1);
-  //set_trigger(0, 0);
+  set_trigger(0, 1);
 
-  Serial.println("Get Triggers:");
-  Serial.println(get_data(CMD.FALLING_EDGE_TRIGGER), BIN);
+  Serial.println("Get Rising Triggers:");
+  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
   Serial.println();
   
   Serial.println("Set Latch 1");
-  set_data(CMD.FALLING_EDGE_TRIGGER, 2);
-  //set_trigger(1, 0);
+  set_trigger(1, 1);
 
-  Serial.println("Get Triggers:");
+  Serial.println("Get Rising Trigger:");
+  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
+  Serial.println();
+
+  Serial.println("Get Falling Trigger:");
   Serial.println(get_data(CMD.FALLING_EDGE_TRIGGER), BIN);
   Serial.println();
 
   Serial.println("Clear Triggers");
   clear_all_triggers();
 
-  Serial.println("Get Triggers:");
-  Serial.println(get_data(CMD.FALLING_EDGE_TRIGGER), BIN);
+  Serial.println("Get Rising Triggers:");
+  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
   Serial.println();
 }
