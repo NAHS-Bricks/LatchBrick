@@ -33,6 +33,7 @@ LOCKBITS = {
 #include "i2c.h"
 #include "pinfun.h"
 #include "globals.h"
+#include "latches.h"
 
 int main() {
     // ----------------------------
@@ -66,13 +67,24 @@ int main() {
     // Normal Operation Loop
     // ----------------------------
     while(1) {
+        if (latches_interrupt) {
+            _delay_ms(10);
+            latches_interrupt_reaction(false);
+            for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) {
+                pin_int_enable_bothedges(latch_pins[latch]);
+            }
+        }
         switch(g_data[CONVERSION_STATE]) {
             case CONVERSION_END:
                 state_queue_decrease();
                 g_data[CONVERSION_STATE] = CONVERSION_FINISHED;
                 break;
+            case CONVERSION_START:
+                if (g_data[STATE_QUEUE_WRITE_POS] == 0) latches_interrupt_reaction(true);
+                g_data[CONVERSION_STATE] = CONVERSION_COMPLETED;
+                break;
             case CONVERSION_FINISHED:
-                if (g_data[STATE_QUEUE_WRITE_POS] > 0) {
+                if (g_data[STATE_QUEUE_WRITE_POS] != 0) {
                     //Reset MainIC
                     pin_set_output(MAINIC_RST_PIN);
                     pin_set_output_low(MAINIC_RST_PIN);
@@ -90,7 +102,7 @@ int main() {
             _delay_ms(1);
         }
         
-        if(go_sleep) {
+        if(go_sleep  && !latches_interrupt) {
             // go to powerdown
             set_sleep_mode(SLEEP_MODE_PWR_DOWN);
             sleep_enable();

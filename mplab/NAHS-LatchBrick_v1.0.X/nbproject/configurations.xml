@@ -7,6 +7,7 @@
       <itemPath>pinfun.h</itemPath>
       <itemPath>globals.h</itemPath>
       <itemPath>i2c.h</itemPath>
+      <itemPath>latches.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +19,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>i2c.c</itemPath>
       <itemPath>globals.c</itemPath>
+      <itemPath>latches.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -33,10 +35,10 @@
         <targetDevice>ATtiny212</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.31</languageToolchainVersion>
-        <platform>2</platform>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="ATtiny_DFP" vendor="Microchip" version="2.5.116"/>
