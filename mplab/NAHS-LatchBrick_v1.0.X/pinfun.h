@@ -30,9 +30,7 @@ extern "C" {
 #define pin_inverted_disable(pin_bp) _SFR_MEM8(0x0410 + pin_bp) &= ~PORT_INVEN_bm
 #define pin_read(pin_pb) (PORTA.IN & (1<<pin_pb))
 #define pin_int_disable(pin_bp) _SFR_MEM8(0x0410 + pin_bp) &= ~0b111
-#define pin_int_enable_bothedges(pin_bp) \
-    pin_int_disable(pin_bp); \
-    _SFR_MEM8(0x0410 + pin_bp) |= PORT_ISC_BOTHEDGES_gc;
+#define pin_int_enable_bothedges(pin_bp) _SFR_MEM8(0x0410 + pin_bp) |= PORT_ISC_BOTHEDGES_gc
     
 #ifdef	__cplusplus
 }

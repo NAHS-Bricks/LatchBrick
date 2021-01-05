@@ -1,7 +1,7 @@
 
 #include "globals.h"
 
-const static uint8_t latch_pins[LATCH_COUNT] = {PIN6_bp, PIN7_bp};
+//static const uint8_t latch_pins[LATCH_COUNT] = {PIN6_bp, PIN7_bp};
 volatile uint8_t state_queue[STATE_QUEUE_MAX_LENGTH][LATCH_COUNT] = {0};
 volatile uint8_t g_data[6] = {0};
 

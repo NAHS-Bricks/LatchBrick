@@ -94,58 +94,71 @@ void coic::set_data(uint8_t cmd, uint8_t date) {
 }
 
 void coic::testing() {
-  uint8_t result = 0;
-
-  Serial.println("State Queue Length:");
-  Serial.println(get_data(CMD.STATE_QUEUE_LENGTH));
+  uint8_t queue_length = get_data(CMD.STATE_QUEUE_LENGTH);
+  Serial.print("State Queue Length: ");
+  Serial.println(queue_length);
   Serial.println();
 
-  Serial.println("Latch Count:");
-  Serial.println(get_data(CMD.LATCH_COUNT));
-  Serial.println();
+  if (queue_length > 0) {
+    Serial.println("Getting rid of data...");
+    Serial.println("Start conversion...");
+    start_conversion();
+    Serial.print("Waiting for readyness");
+    while(!ready_to_send_states()) {
+      delay(100);
+      Serial.print(".");
+    }
+    Serial.println("received");
+    Serial.println("Fetching states...");
+    get_states();
+    Serial.println("Received:");
+    for (uint8_t latch = 0; latch < latch_count; ++latch) Serial.print(latch_state[latch]);
+    Serial.println("Stop conversion...");
+    stop_conversion();
+    return;
+  }
 
-  Serial.println("Conversion State:");
-  Serial.println(get_data(CMD.CONVERSION_STATE));
-  Serial.println();
-
-  Serial.println("Start Conversion...");
+  Serial.println("Start conversion...");
   start_conversion();
-  Serial.println("Conversion State:");
-  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
+  
+  Serial.print("Waiting for readyness");
+  while(!ready_to_send_states()) {
+    delay(100);
+    Serial.print(".");
+  }
+  Serial.println("received");
   Serial.println();
 
-  Serial.println("Stop Conversion...");
+  queue_length = get_data(CMD.STATE_QUEUE_LENGTH);
+  Serial.print("State Queue Length: ");
+  Serial.println(queue_length);
+  Serial.println();
+
+  Serial.println("Setting Up Triggers...");
+  set_all_triggers(0);
+  set_all_triggers(1);
+
+  Serial.print("Waiting for User to trigger latch");
+  while(true) {
+    delay(1000);
+    Serial.print(".");
+    if(get_data(CMD.STATE_QUEUE_LENGTH) > queue_length) break;
+  }
+  Serial.println("received");
+  Serial.println();
+
+  queue_length = get_data(CMD.STATE_QUEUE_LENGTH);
+  Serial.print("State Queue Length: ");
+  Serial.println(queue_length);
+  Serial.println();
+
+  Serial.println("Fetching states...");
+  get_states();
+  Serial.println("Received:");
+  for (uint8_t latch = 0; latch < latch_count; ++latch) Serial.println(latch_state[latch]);
+  Serial.println();
+  
+  Serial.println("Stop conversion...");
   stop_conversion();
-  Serial.println("Conversion State:");
-  Serial.println(get_data(CMD.CONVERSION_STATE));
-  Serial.println();
-  
-  Serial.println("Get Rising Triggers:");
-  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
-  Serial.println();
-  
-  Serial.println("Set Latch 0");
-  set_trigger(0, 1);
-
-  Serial.println("Get Rising Triggers:");
-  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
-  Serial.println();
-  
-  Serial.println("Set Latch 1");
-  set_trigger(1, 1);
-
-  Serial.println("Get Rising Trigger:");
-  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
-  Serial.println();
-
-  Serial.println("Get Falling Trigger:");
-  Serial.println(get_data(CMD.FALLING_EDGE_TRIGGER), BIN);
-  Serial.println();
-
-  Serial.println("Clear Triggers");
-  clear_all_triggers();
-
-  Serial.println("Get Rising Triggers:");
-  Serial.println(get_data(CMD.RISING_EDGE_TRIGGER), BIN);
-  Serial.println();
 }

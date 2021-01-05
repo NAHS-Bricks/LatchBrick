@@ -68,11 +68,9 @@ int main() {
     // ----------------------------
     while(1) {
         if (latches_interrupt) {
-            _delay_ms(10);
+            _delay_ms(20);
             latches_interrupt_reaction(false);
-            for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) {
-                pin_int_enable_bothedges(latch_pins[latch]);
-            }
+            for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) pin_int_enable_bothedges(latch_pins[latch]);
         }
         switch(g_data[CONVERSION_STATE]) {
             case CONVERSION_END:

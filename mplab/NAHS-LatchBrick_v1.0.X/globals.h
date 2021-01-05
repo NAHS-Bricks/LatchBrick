@@ -21,7 +21,7 @@ extern "C" {
     #define SDA_PIN                     PIN1_bp
     #define SCL_PIN                     PIN2_bp
     #define MAINIC_RST_PIN              PIN3_bp
-    const static uint8_t latch_pins[LATCH_COUNT];
+    static const uint8_t latch_pins[LATCH_COUNT] = {PIN6_bp, PIN7_bp};
 
     #define STATE_LOW_LEVEL             0
     #define STATE_HIGH_LEVEL            1

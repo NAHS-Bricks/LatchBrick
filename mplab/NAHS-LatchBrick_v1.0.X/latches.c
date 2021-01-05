@@ -22,8 +22,8 @@ void latches_interrupt_reaction(bool move_queue) {
     // wait for bump to complete or max wait time is exeeded
     uint8_t final_state[LATCH_COUNT];
     uint8_t bump_wait = 0;
-    while (bump_wait < 25) {
-        _delay_ms(20);
+    while (bump_wait < 10) {
+        _delay_ms(50);
         ++bump_wait;
         for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) {
             if (pin_read(latch_pins[latch]) == 0) final_state[latch] = 0;
