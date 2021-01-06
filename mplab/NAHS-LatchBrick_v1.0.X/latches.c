@@ -10,7 +10,7 @@ volatile bool latches_interrupt = false;
 uint8_t previous_state[LATCH_COUNT] = {0};
 
 void latches_interrupt_reaction(bool move_queue) {
-    latches_interrupt = false;
+    for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) pin_int_disable(latch_pins[latch]);
     
     // store current state of latches
     uint8_t initial_state[LATCH_COUNT];
@@ -60,9 +60,11 @@ void latches_interrupt_reaction(bool move_queue) {
     }
     
     if (move_queue) state_queue_increase();
+    for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) pin_int_enable_bothedges(latch_pins[latch]);
+    latches_interrupt = false;
+    PORTA.INTFLAGS = 0xFF;  // Clear interrupt-flags
 }
 
 ISR (PORTA_PORT_vect) {
-    for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) pin_int_disable(latch_pins[latch]);
     latches_interrupt = true;
 }

@@ -67,34 +67,30 @@ int main() {
     // Normal Operation Loop
     // ----------------------------
     while(1) {
+        bool go_sleep = false;
         if (latches_interrupt) {
             _delay_ms(20);
             latches_interrupt_reaction(false);
-            for (uint8_t latch = 0; latch < LATCH_COUNT; ++latch) pin_int_enable_bothedges(latch_pins[latch]);
         }
-        switch(g_data[CONVERSION_STATE]) {
-            case CONVERSION_END:
-                state_queue_decrease();
-                g_data[CONVERSION_STATE] = CONVERSION_FINISHED;
-                break;
-            case CONVERSION_START:
-                if (g_data[STATE_QUEUE_WRITE_POS] == 0) latches_interrupt_reaction(true);
-                g_data[CONVERSION_STATE] = CONVERSION_COMPLETED;
-                break;
-            case CONVERSION_FINISHED:
-                if (g_data[STATE_QUEUE_WRITE_POS] != 0) {
-                    //Reset MainIC
-                    pin_set_output(MAINIC_RST_PIN);
-                    pin_set_output_low(MAINIC_RST_PIN);
-                    _delay_ms(10);
-                    pin_set_input_hiz(MAINIC_RST_PIN);
-                    g_data[CONVERSION_STATE] = CONVERSION_RESET_TRIGGERED;
-                }
-                break;
+        else if (g_data[CONVERSION_STATE] == CONVERSION_END) {
+            state_queue_decrease();
+            g_data[CONVERSION_STATE] = CONVERSION_FINISHED;
         }
+        else if (g_data[CONVERSION_STATE] == CONVERSION_START) {
+            if (g_data[STATE_QUEUE_WRITE_POS] == 0) latches_interrupt_reaction(true);
+            g_data[CONVERSION_STATE] = CONVERSION_COMPLETED;
+        }
+        else if (g_data[CONVERSION_STATE] == CONVERSION_FINISHED && g_data[STATE_QUEUE_WRITE_POS] != 0) {
+            // Reset MainIC
+            pin_set_output(MAINIC_RST_PIN);
+            pin_set_output_low(MAINIC_RST_PIN);
+            _delay_ms(10);
+            pin_set_input_hiz(MAINIC_RST_PIN);
+            g_data[CONVERSION_STATE] = CONVERSION_RESET_TRIGGERED;
+        }
+        else go_sleep = true;
                 
         // wait for i2c interaction to finish.
-        bool go_sleep = true;
         while(i2c_interaction_running) {
             go_sleep = false;
             _delay_ms(1);

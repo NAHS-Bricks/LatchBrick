@@ -14,7 +14,11 @@ uint8_t coic::get_latch_count() {
 void coic::get_states() {
   Wire.beginTransmission(ADDR);
   Wire.write(CMD.OLDEST_STATE);
-  Wire.endTransmission();
+  uint8_t s = Wire.endTransmission();
+  if (s > 0) {
+    Serial.print("ERROR on endTransmission!: ");
+    Serial.println(s);
+  }
 
   Wire.requestFrom(ADDR, latch_count);
   uint8_t latch = 0;
@@ -22,13 +26,12 @@ void coic::get_states() {
     latch_state[latch] = Wire.read();
     latch++;
   }
-  Wire.endTransmission();
 }
 
 bool coic::ready_to_send_states() {
   uint8_t result = get_data(CMD.CONVERSION_STATE);
-  if(result == 2) return false;
-  else return true;
+  if(result == 2) return true;
+  else return false;
 }
 
 void coic::start_conversion() {
@@ -69,20 +72,27 @@ void coic::clear_all_triggers() {
     Wire.write(CMD.FALLING_EDGE_TRIGGER + trigger_id);
     Wire.write(0x00);
   }
-  Wire.endTransmission();
+  uint8_t s = Wire.endTransmission();
+  if (s > 0) {
+    Serial.print("ERROR on endTransmission!: ");
+    Serial.println(s);
+  }
 }
 
 uint8_t coic::get_data(uint8_t cmd) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
-  Wire.endTransmission();
+  uint8_t s = Wire.endTransmission();
+  if (s > 0) {
+    Serial.print("ERROR on endTransmission!: ");
+    Serial.println(s);
+  }
 
   Wire.requestFrom(ADDR, (uint8_t) 1);
   uint8_t result = 0;
   while(Wire.available()) {
     result = Wire.read();
   }
-  Wire.endTransmission();
   return result;
 }
 
@@ -90,13 +100,25 @@ void coic::set_data(uint8_t cmd, uint8_t date) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
   Wire.write(date);
-  Wire.endTransmission();
+  uint8_t s = Wire.endTransmission();
+  if (s > 0) {
+    Serial.print("ERROR on endTransmission!: ");
+    Serial.println(s);
+  }
 }
 
 void coic::testing() {
+  Serial.print("Latch Count: ");
+  Serial.println(latch_count);
+  Serial.println();
+  
   uint8_t queue_length = get_data(CMD.STATE_QUEUE_LENGTH);
   Serial.print("State Queue Length: ");
   Serial.println(queue_length);
+  Serial.println();
+
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
   Serial.println();
 
   if (queue_length > 0) {
@@ -114,6 +136,7 @@ void coic::testing() {
     Serial.println("Received:");
     for (uint8_t latch = 0; latch < latch_count; ++latch) Serial.print(latch_state[latch]);
     Serial.println("Stop conversion...");
+    Serial.flush();
     stop_conversion();
     return;
   }
@@ -121,13 +144,21 @@ void coic::testing() {
   Serial.println("Start conversion...");
   start_conversion();
   Serial.println();
+
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
   
   Serial.print("Waiting for readyness");
   while(!ready_to_send_states()) {
     delay(100);
     Serial.print(".");
   }
-  Serial.println("received");
+  Serial.println(" received");
+  Serial.println();
+
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
   Serial.println();
 
   queue_length = get_data(CMD.STATE_QUEUE_LENGTH);
@@ -135,9 +166,17 @@ void coic::testing() {
   Serial.println(queue_length);
   Serial.println();
 
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
+
   Serial.println("Setting Up Triggers...");
   set_all_triggers(0);
   set_all_triggers(1);
+
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
 
   Serial.print("Waiting for User to trigger latch");
   while(true) {
@@ -145,7 +184,11 @@ void coic::testing() {
     Serial.print(".");
     if(get_data(CMD.STATE_QUEUE_LENGTH) > queue_length) break;
   }
-  Serial.println("received");
+  Serial.println(" received");
+  Serial.println();
+
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
   Serial.println();
 
   queue_length = get_data(CMD.STATE_QUEUE_LENGTH);
@@ -153,12 +196,21 @@ void coic::testing() {
   Serial.println(queue_length);
   Serial.println();
 
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
+
   Serial.println("Fetching states...");
   get_states();
   Serial.println("Received:");
   for (uint8_t latch = 0; latch < latch_count; ++latch) Serial.println(latch_state[latch]);
   Serial.println();
+
+  Serial.print("Conversion State: ");
+  Serial.println(get_data(CMD.CONVERSION_STATE));
+  Serial.println();
   
   Serial.println("Stop conversion...");
+  Serial.flush();
   stop_conversion();
 }

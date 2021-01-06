@@ -37,8 +37,8 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.31</languageToolchainVersion>
-        <platform>2</platform>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="ATtiny_DFP" vendor="Microchip" version="2.5.116"/>
@@ -644,7 +644,7 @@
         <property key="communication.interface" value="updi"/>
         <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="0,500"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>

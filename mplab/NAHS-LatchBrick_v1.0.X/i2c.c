@@ -76,11 +76,11 @@ void i2c_init(void)	{
 		//	| 0x0 << TWI_ADDRMASK_gp; Address Mask: 0x0
 
 	TWI0.SCTRLA = 1 << TWI_APIEN_bp								// Address/Stop Interrupt Enable: enabled
-	              | 1 << TWI_DIEN_bp							// Data Interrupt Enable: enabled
-	              | 1 << TWI_ENABLE_bp							// Enable TWI Slave: enabled
-	              | 1 << TWI_PIEN_bp							// Stop Interrupt Enable: enabled
-	              | 0 << TWI_PMEN_bp							// Promiscuous Mode Enable: disabled
-	              | 0 << TWI_SMEN_bp;							// Smart Mode Enable: disabled
+	            | 1 << TWI_DIEN_bp							// Data Interrupt Enable: enabled
+	            | 1 << TWI_ENABLE_bp							// Enable TWI Slave: enabled
+	            | 1 << TWI_PIEN_bp							// Stop Interrupt Enable: enabled
+	            | 0 << TWI_PMEN_bp							// Promiscuous Mode Enable: disabled
+	            | 0 << TWI_SMEN_bp;							// Smart Mode Enable: disabled
 }
 
 // error handler, should reset I2C slave internal state
@@ -90,20 +90,11 @@ void i2c_error_handler() {
     i2c_interaction_running = false;
 	TWI0.SSTATUS |= (TWI_APIF_bm | TWI_DIF_bm);					// clear interrupt flags
 
-    pin_set_input(SCL_PIN);  // PORTA_set_pin_dir(2, PORT_DIR_IN);							// SCL = PA2
-	pin_set_input(SDA_PIN);  // PORTA_set_pin_dir(1, PORT_DIR_IN);							// SDA = PA1
 	TWI0.SCTRLA = 0;											// disable slave
-	_delay_us(10);												// SCL, SDA tristated high
-    pin_set_output(SCL_PIN);  // PORTA_set_pin_dir(2, PORT_DIR_OUT);							// SCL = PA2
-	pin_set_output(SDA_PIN);  // PORTA_set_pin_dir(1, PORT_DIR_OUT);							// SDA = PA1
-																// re-enable slave
-	TWI0.SCTRLA = 1 << TWI_APIEN_bp								// Address/Stop Interrupt Enable: enabled
-				| 1 << TWI_DIEN_bp								// Data Interrupt Enable: enabled
-				| 1 << TWI_ENABLE_bp							// Enable TWI Slave: enabled
-				| 1 << TWI_PIEN_bp								// Stop Interrupt Enable: enabled
-				| 0 << TWI_PMEN_bp								// Promiscuous Mode Enable: disabled
-				| 0 << TWI_SMEN_bp;								// Smart Mode Enable: disabled
+
 	TWI0.SCTRLB = TWI_ACKACT_NACK_gc | TWI_SCMD_NOACT_gc;		// set NACK, no action (just in case)
+    
+    i2c_init();
 }
 
 // I2C IRQ handler
@@ -166,6 +157,10 @@ ISR(TWI0_TWIS_vect)
                 TWI0.SDATA = LATCH_COUNT;
             }
             
+            else if (received_cmd == CMD_CONVERSION_STATE) {
+                TWI0.SDATA = g_data[received_cmd];
+            }
+            
             else {
                 TWI0.SDATA = g_data[received_cmd];
             }
@@ -194,9 +189,9 @@ ISR(TWI0_TWIS_vect)
         
         // Command allready received, so this should be a data-write
         else {
-            int8_t current_cmd = received_cmd;  // Save received_cmd for further use in this sub-tree...
-            received_cmd = -1;                  // ...but be able to allready reset it
-            uint8_t current_data = TWI0.SDATA;
+            const int8_t current_cmd = received_cmd;    // Save received_cmd for further use in this sub-tree...
+            received_cmd = -1;                          // ...but be able to allready reset it
+            const uint8_t current_data = TWI0.SDATA;
             
             // Command points to a valid storage location (and has valid data in case of CONVERSION_STATE)
             if ((current_cmd < CMD_CONVERSION_STATE) || ((current_cmd == CMD_CONVERSION_STATE) && (current_data < 2))) {
