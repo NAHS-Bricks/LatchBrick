@@ -14,11 +14,7 @@ uint8_t coic::get_latch_count() {
 void coic::get_states() {
   Wire.beginTransmission(ADDR);
   Wire.write(CMD.OLDEST_STATE);
-  uint8_t s = Wire.endTransmission();
-  if (s > 0) {
-    Serial.print("ERROR on endTransmission!: ");
-    Serial.println(s);
-  }
+  Wire.endTransmission();
 
   Wire.requestFrom(ADDR, latch_count);
   uint8_t latch = 0;
@@ -40,6 +36,10 @@ void coic::start_conversion() {
 
 void coic::stop_conversion() {
   set_data(CMD.CONVERSION_STATE, 0);
+}
+
+uint8_t coic::conversion_state() {
+  return get_data(CMD.CONVERSION_STATE);
 }
 
 void coic::set_trigger(uint8_t latch, uint8_t trigger_id) {
@@ -72,21 +72,13 @@ void coic::clear_all_triggers() {
     Wire.write(CMD.FALLING_EDGE_TRIGGER + trigger_id);
     Wire.write(0x00);
   }
-  uint8_t s = Wire.endTransmission();
-  if (s > 0) {
-    Serial.print("ERROR on endTransmission!: ");
-    Serial.println(s);
-  }
+  Wire.endTransmission();
 }
 
 uint8_t coic::get_data(uint8_t cmd) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
-  uint8_t s = Wire.endTransmission();
-  if (s > 0) {
-    Serial.print("ERROR on endTransmission!: ");
-    Serial.println(s);
-  }
+  Wire.endTransmission();
 
   Wire.requestFrom(ADDR, (uint8_t) 1);
   uint8_t result = 0;
@@ -100,11 +92,7 @@ void coic::set_data(uint8_t cmd, uint8_t date) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
   Wire.write(date);
-  uint8_t s = Wire.endTransmission();
-  if (s > 0) {
-    Serial.print("ERROR on endTransmission!: ");
-    Serial.println(s);
-  }
+  Wire.endTransmission();
 }
 
 void coic::testing() {

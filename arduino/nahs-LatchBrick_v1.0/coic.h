@@ -24,6 +24,7 @@ class coic {
   public:
     uint8_t latch_count;
     uint8_t latch_state[MAX_LATCHES] = {0};
+    uint8_t conversion_state();
   public:
     coic();
     uint8_t get_latch_count();

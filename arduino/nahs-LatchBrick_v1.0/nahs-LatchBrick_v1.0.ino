@@ -17,15 +17,30 @@ void setup() {
   }
 
 
+  //----
+  // Debugging
+  Serial.begin(115200);
+  Serial.println();
+
+
   //------------------------------------------
   //Here the normal Operation begins...
   cfgdat = new configData();
-  WiFi.forceSleepWake();  // Enable WiFi Radio
-  delay(1);
+  //WiFi.forceSleepWake();  // Enable WiFi Radio
+  //delay(1);
   WiFi.begin(cfgdat->wifissid.c_str(), cfgdat->wifipass.c_str());  // Connecting to WiFi can be done in background as it consumes a lot of time
   rundat = new runtimeData();
   latches = new coic();
+
+  Serial.print("Conversion State: ");
+  Serial.println(latches->conversion_state());
+  Serial.println();
+  Serial.println("Start Conversion");
+  Serial.println();
   latches->start_conversion();  // can also be done in background as it consumes some time
+  Serial.print("Conversion State: ");
+  Serial.println(latches->conversion_state());
+  Serial.println();
 
 
   //------------------------------------------
@@ -85,11 +100,17 @@ void setup() {
 
   //------------------------------------------
   // pull latch-states from coic
+  Serial.println("Wait for conversion");
+  Serial.print("Conversion State: ");
+  Serial.println(latches->conversion_state());
   while(!latches->ready_to_send_states()) delay(10);  // wait for the conversion to be completed
+  Serial.println("Conversion completed");
   latches->get_states();
   for (uint8_t latch = 0; latch < latches->latch_count; latch++) {
     l_array.add(latches->latch_state[latch]);
   }
+  Serial.println("States Fetched");
+  Serial.println();
 
 
   //------------------------------------------
@@ -109,9 +130,9 @@ void setup() {
   deserializeJson(feedback, http.getStream());
   http.end();
   // Switch WiFi Radio completely off, as it is not required anymore and just consumes power
-  WiFi.mode(WIFI_OFF);
-  WiFi.forceSleepBegin();
-  delay(1);
+  //WiFi.mode(WIFI_OFF);
+  //WiFi.forceSleepBegin();
+  //delay(1);
 
 
   //------------------------------------------
@@ -155,12 +176,27 @@ void setup() {
 
   //------------------------------------------
   // inform coic that all data processing is done
+  Serial.print("Conversion State: ");
+  Serial.println(latches->conversion_state());
+  Serial.println();
+  Serial.println("Conversion Stop");
+  Serial.println();
+  Serial.flush();
   latches->stop_conversion();
+  Serial.print("Conversion State: ");
+  Serial.println(latches->conversion_state());
+  Serial.println();
 
 
   //------------------------------------------
   // go to deepsleep
-  ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6, WAKE_RF_DISABLED);
+  Serial.println("Go Sleep");
+  Serial.println();
+  Serial.flush();
+  //ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6, WAKE_RF_DISABLED);
+  ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6);
+  //delay(rundat->vars.deepSleepDelay * 1000);
+  //ESP.deepSleep(1000);
 }
 
 void loop() {
