@@ -91,10 +91,10 @@ void i2c_error_handler() {
 	TWI0.SSTATUS |= (TWI_APIF_bm | TWI_DIF_bm);					// clear interrupt flags
 
 	TWI0.SCTRLA = 0;											// disable slave
-
-	TWI0.SCTRLB = TWI_ACKACT_NACK_gc | TWI_SCMD_NOACT_gc;		// set NACK, no action (just in case)
     
     i2c_init();
+    
+    TWI0.SCTRLB = TWI_ACKACT_NACK_gc | TWI_SCMD_NOACT_gc;		// set NACK, no action (just in case)
 }
 
 // I2C IRQ handler
@@ -129,8 +129,10 @@ ISR(TWI0_TWIS_vect)
     // APIF && AP - valid address has been received
     if ((TWI0.SSTATUS & TWI_APIF_bm) && (TWI0.SSTATUS & TWI_AP_bm)) {
         i2c_interaction_running = true;
-        TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
-        if (!(TWI0.SSTATUS & TWI_DIR_bm)) return;  // Master wishes to write -- return and wait for payload
+        if (!(TWI0.SSTATUS & TWI_DIR_bm)) {  // Master wishes to write -- return and wait for payload
+            TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
+            return;
+        }
     }
     
     // DIF - Data Interrupt Flag - slave byte transmit or receive completed
@@ -147,26 +149,26 @@ ISR(TWI0_TWIS_vect)
     // Master wishes to read from slave
     if (TWI0.SSTATUS & TWI_DIR_bm) {
         while (!(TWI0.SSTATUS & TWI_CLKHOLD_bm)) {}			// wait until Clock Hold flag set
-        
+
         // No command received yet, send dummy-load
         if (received_cmd == -1) TWI0.SDATA = 0;
-        
+
         // one-byte long data is requested
         if (received_cmd < CMD_OLDEST_STATE) {
             if (received_cmd == CMD_LATCH_COUNT) {
                 TWI0.SDATA = LATCH_COUNT;
             }
-            
+
             else if (received_cmd == CMD_CONVERSION_STATE) {
                 TWI0.SDATA = g_data[received_cmd];
             }
-            
+
             else {
                 TWI0.SDATA = g_data[received_cmd];
             }
             received_cmd = -1;  // Reset received command -- transaction done
         }
-        
+
         // oldest_state is requested
         else {
             TWI0.SDATA = state_queue[0][next_latch_to_send];
@@ -176,8 +178,6 @@ ISR(TWI0_TWIS_vect)
                 next_latch_to_send = 0;
             }
         }
-        
-        TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;  // send ACK
     }
     
     // Master wishes to write to slave
@@ -186,26 +186,19 @@ ISR(TWI0_TWIS_vect)
         if(received_cmd < 0) {
             received_cmd = TWI0.SDATA;
         }
-        
+
         // Command allready received, so this should be a data-write
         else {
             const int8_t current_cmd = received_cmd;    // Save received_cmd for further use in this sub-tree...
             received_cmd = -1;                          // ...but be able to allready reset it
             const uint8_t current_data = TWI0.SDATA;
-            
+
             // Command points to a valid storage location (and has valid data in case of CONVERSION_STATE)
             if ((current_cmd < CMD_CONVERSION_STATE) || ((current_cmd == CMD_CONVERSION_STATE) && (current_data < 2))) {
                 g_data[current_cmd] = current_data;
             }
-            
-            // Invalid storage command or data
-            else {
-                TWI0.SCTRLB = TWI_ACKACT_NACK_gc | TWI_SCMD_RESPONSE_gc; // send NACK
-                return;
-            }
         }
-        TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
     }
     
-    return;
+    TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
 }
