@@ -37,8 +37,8 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.30</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>2.20</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="ATtiny_DFP" vendor="Microchip" version="2.5.116"/>

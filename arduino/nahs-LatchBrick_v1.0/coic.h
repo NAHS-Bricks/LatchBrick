@@ -32,6 +32,7 @@ class coic {
     bool ready_to_send_states();
     void start_conversion();
     void stop_conversion();
+    uint8_t queue_length();
     void set_trigger(uint8_t latch, uint8_t trigger_id);
     void set_all_triggers(uint8_t latch);
     void clear_trigger(uint8_t latch, uint8_t trigger_id);

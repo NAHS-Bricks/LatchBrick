@@ -46,8 +46,8 @@ int main() {
     
     // Set F_CPU to 1MHz
     CPU_CCP = CCP_IOREG_gc;  // unlock clk configuration
-    CLKCTRL.MCLKCTRLB = (0x03<<1) | 0x01;  // set prescaler to 16 and keep it enabled
-    _delay_ms(10);  // wait a bit to let clock settle down
+    CLKCTRL.MCLKCTRLB = CLKCTRL_PDIV_16X_gc | CLKCTRL_PEN_bm;  // set prescaler to 16 and enable it
+    _delay_ms(1);  // wait a bit to let clock settle down
     
     // Setup Latch-Pins
     for(uint8_t i = 0; i < LATCH_COUNT; i++) {
@@ -58,6 +58,8 @@ int main() {
     i2c_init();
     
     // Enable Interrupts
+    CPUINT.CTRLA &= ~CPUINT_LVL0RR_bm;  // Disable Interrupt Round-Robin
+    CPUINT.LVL0PRI = 19;  // Setting Highest Interrupt Priority to TWI interrupts
     sei();
     
     //Release MainIC to let it Startup

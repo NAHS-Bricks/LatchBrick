@@ -38,6 +38,10 @@ void coic::stop_conversion() {
   set_data(CMD.CONVERSION_STATE, 0);
 }
 
+uint8_t coic::queue_length() {
+  return get_data(CMD.STATE_QUEUE_LENGTH);
+}
+
 uint8_t coic::conversion_state() {
   return get_data(CMD.CONVERSION_STATE);
 }
@@ -78,7 +82,11 @@ void coic::clear_all_triggers() {
 uint8_t coic::get_data(uint8_t cmd) {
   Wire.beginTransmission(ADDR);
   Wire.write(cmd);
-  Wire.endTransmission();
+  uint8_t wire_state = Wire.endTransmission();
+  if(wire_state != 0) {
+    Serial.print("Wire Error: ");
+    Serial.println(wire_state);
+  }
 
   Wire.requestFrom(ADDR, (uint8_t) 1);
   uint8_t result = 0;

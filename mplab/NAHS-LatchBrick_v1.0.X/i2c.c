@@ -98,7 +98,6 @@ void i2c_error_handler() {
 }
 
 // I2C IRQ handler
-
 ISR(TWI0_TWIS_vect)
 {
     // APIF && DIF, invalid state (should never occur)
@@ -129,8 +128,8 @@ ISR(TWI0_TWIS_vect)
     // APIF && AP - valid address has been received
     if ((TWI0.SSTATUS & TWI_APIF_bm) && (TWI0.SSTATUS & TWI_AP_bm)) {
         i2c_interaction_running = true;
+        TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
         if (!(TWI0.SSTATUS & TWI_DIR_bm)) {  // Master wishes to write -- return and wait for payload
-            TWI0.SCTRLB = TWI_ACKACT_ACK_gc | TWI_SCMD_RESPONSE_gc;	// send ACK
             return;
         }
     }

@@ -35,6 +35,8 @@ void setup() {
   Serial.print("Conversion State: ");
   Serial.println(latches->conversion_state());
   Serial.println();
+  Serial.print("Queue Length: ");
+  Serial.println(latches->queue_length());
   Serial.println("Start Conversion");
   Serial.println();
   latches->start_conversion();  // can also be done in background as it consumes some time
@@ -100,9 +102,9 @@ void setup() {
 
   //------------------------------------------
   // pull latch-states from coic
-  Serial.println("Wait for conversion");
   Serial.print("Conversion State: ");
   Serial.println(latches->conversion_state());
+  Serial.println("Wait for conversion");
   while(!latches->ready_to_send_states()) delay(10);  // wait for the conversion to be completed
   Serial.println("Conversion completed");
   latches->get_states();
