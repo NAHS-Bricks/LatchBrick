@@ -196,6 +196,10 @@ ISR(TWI0_TWIS_vect)
             if ((current_cmd < CMD_CONVERSION_STATE) || ((current_cmd == CMD_CONVERSION_STATE) && (current_data < 2))) {
                 g_data[current_cmd] = current_data;
             }
+            else if ((current_cmd == CMD_INTERRUPT_CTL) && (current_data < 5)) {
+                g_data[current_cmd] = current_data;
+                interrupt_ctl_changed = true;
+            }
         }
     }
     

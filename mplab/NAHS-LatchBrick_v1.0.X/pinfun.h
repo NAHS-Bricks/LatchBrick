@@ -24,6 +24,7 @@ extern "C" {
 #define pin_set_output(pin_pb) PORTA.DIRSET = (1<<pin_pb)
 #define pin_set_output_high(pin_pb) PORTA.OUTSET = (1<<pin_pb)
 #define pin_set_output_low(pin_pb) PORTA.OUTCLR = (1<<pin_pb)
+#define pin_set_output_toggle(pin_pb) PORTA.OUTTGL = (1<<pin_pb)
 #define pin_pullup_enable(pin_bp) _SFR_MEM8(0x0410 + pin_bp) |= PORT_PULLUPEN_bm
 #define pin_pullup_disable(pin_bp) _SFR_MEM8(0x0410 + pin_bp) &= ~PORT_PULLUPEN_bm
 #define pin_inverted_enable(pin_bp) _SFR_MEM8(0x0410 + pin_bp) |= PORT_INVEN_bm

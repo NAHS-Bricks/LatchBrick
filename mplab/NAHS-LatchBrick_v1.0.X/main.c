@@ -41,8 +41,8 @@ int main() {
     // ----------------------------
     
     // Pull MainIC to reset-state, till this CoIC is fully set-up
-    pin_set_output(MAINIC_RST_PIN);
-    pin_set_output_low(MAINIC_RST_PIN);
+    pin_set_output(INTERRUPT_CTL_PIN);
+    pin_set_output_low(INTERRUPT_CTL_PIN);
     
     // Set F_CPU to 1MHz
     CPU_CCP = CCP_IOREG_gc;  // unlock clk configuration
@@ -62,9 +62,6 @@ int main() {
     CPUINT.LVL0PRI = 19;  // Setting Highest Interrupt Priority to TWI interrupts
     sei();
     
-    //Release MainIC to let it Startup
-    pin_set_input_hiz(MAINIC_RST_PIN);
-    
     // ----------------------------
     // Normal Operation Loop
     // ----------------------------
@@ -73,6 +70,18 @@ int main() {
         if (latches_interrupt) {
             _delay_ms(20);
             latches_interrupt_reaction(false);
+        }
+        else if (interrupt_ctl_changed) {
+            uint8_t int_ctl = g_data[INTERRUPT_CTL];  // caching volatile variable
+            if (int_ctl > INT_CTL_HIGH_SIG) {
+                pin_set_output(INTERRUPT_CTL_PIN);
+                if (int_ctl == INT_CTL_LOW_PULSE) pin_set_output_high(INTERRUPT_CTL_PIN);
+                else pin_set_output_low(INTERRUPT_CTL_PIN);
+            }
+            else {
+                pin_set_input_hiz(INTERRUPT_CTL_PIN);
+            }
+            interrupt_ctl_changed = false;
         }
         else if (g_data[CONVERSION_STATE] == CONVERSION_END) {
             state_queue_decrease();
@@ -83,11 +92,20 @@ int main() {
             g_data[CONVERSION_STATE] = CONVERSION_COMPLETED;
         }
         else if (g_data[CONVERSION_STATE] == CONVERSION_FINISHED && g_data[STATE_QUEUE_WRITE_POS] != 0) {
-            // Reset MainIC
-            pin_set_output(MAINIC_RST_PIN);
-            pin_set_output_low(MAINIC_RST_PIN);
-            _delay_ms(10);
-            pin_set_input_hiz(MAINIC_RST_PIN);
+            uint8_t int_ctl = g_data[INTERRUPT_CTL];  // caching volatile variable
+            if (int_ctl != INT_CTL_DISABLE) {
+                if (int_ctl > INT_CTL_HIGH_SIG) pin_set_output_toggle(INTERRUPT_CTL_PIN);
+                else {
+                    pin_set_output(INTERRUPT_CTL_PIN);
+                    if (int_ctl == INT_CTL_LOW_SIG) pin_set_output_low(INTERRUPT_CTL_PIN);
+                    else pin_set_output_high(INTERRUPT_CTL_PIN);
+                }
+                _delay_ms(10);
+                if (int_ctl > INT_CTL_HIGH_SIG) pin_set_output_toggle(INTERRUPT_CTL_PIN);
+                else {
+                    pin_set_input_hiz(INTERRUPT_CTL_PIN);
+                } 
+            }
             g_data[CONVERSION_STATE] = CONVERSION_RESET_TRIGGERED;
         }
         else go_sleep = true;

@@ -12,10 +12,11 @@ class coic {
       uint8_t RISING_EDGE_TRIGGER   =   1;
       uint8_t FALLING_BUMP_TRIGGER  =   2;
       uint8_t RISING_BUMP_TRIGGER   =   3;
-      uint8_t CONVERSION_STATE      =   4;
-      uint8_t STATE_QUEUE_LENGTH    =   5;
-      uint8_t LATCH_COUNT           =   6;
-      uint8_t OLDEST_STATE          =   7;
+      uint8_t INTERRUPT_CTL         =   4;
+      uint8_t CONVERSION_STATE      =   5;
+      uint8_t STATE_QUEUE_LENGTH    =   6;
+      uint8_t LATCH_COUNT           =   7;
+      uint8_t OLDEST_STATE          =   8;
     } CMD;
   private:
     uint8_t get_data(uint8_t cmd);
