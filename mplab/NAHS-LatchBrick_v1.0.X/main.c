@@ -82,6 +82,7 @@ int main() {
                 pin_set_input_hiz(INTERRUPT_CTL_PIN);
             }
             interrupt_ctl_changed = false;
+            if (g_data[CONVERSION_STATE] == CONVERSION_RESET_TRIGGERED) g_data[CONVERSION_STATE] = CONVERSION_FINISHED;
         }
         else if (g_data[CONVERSION_STATE] == CONVERSION_END) {
             state_queue_decrease();
