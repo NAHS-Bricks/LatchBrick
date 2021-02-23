@@ -22,6 +22,7 @@ class brickSetup {
       void connectBrickServer();
       void calibrateADC();
       void inspectRuntimeData();
+      void showLatchInfo();
 };
 
 #endif // BRICK_SETUP_H

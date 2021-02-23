@@ -8,6 +8,7 @@
 
 
 void setup() {
+  Wire.begin();
   pinMode(SETUP_PIN, INPUT_PULLUP);
   delay(1);
   if (digitalRead(SETUP_PIN) == LOW) {
@@ -24,7 +25,6 @@ void setup() {
   WiFi.begin(cfgdat->wifissid.c_str(), cfgdat->wifipass.c_str());  // Connecting to WiFi can be done in background as it consumes a lot of time
   rundat = new runtimeData();
 
-  Wire.begin();
   latches->begin(COIC_ADDR);
   latches->conversionBegin();  // Telling CoIC that we're going to read some Data later on and it can start preparing it's data, as this takes some time
 

@@ -48,6 +48,9 @@ void brickSetup::enter() {
       case 9:
         inspectRuntimeData();
         break;
+      case 10:
+        showLatchInfo();
+        break;
       default:
         showMenu();
     }
@@ -100,6 +103,7 @@ void brickSetup::showMenu() {
   Serial.println(" 7) Connect to BrickServer");
   Serial.println(" 8) Calibrate ADC");
   Serial.println(" 9) Inspect RuntimeData");
+  Serial.println("10) Show Latch Info");
 }
 
 
@@ -303,4 +307,42 @@ void brickSetup::inspectRuntimeData() {
   Serial.println(rundat->vars.adc5V);
   
   //latch
+}
+
+
+//------------------------------------------
+// showLatchInfo
+void brickSetup::showLatchInfo() {
+  Serial.print("Connecting to CoIC: ");
+  if (!latches->begin(COIC_ADDR)) {
+    Serial.println(" failed!");
+  }
+  else {
+    Serial.println(" success!");
+
+    Serial.println("Disable Interrupt");
+    latches->setInterrupt(CoIC_Latch::INT_CTL::DISABLE);
+
+    Serial.print("Number of Latches: ");
+    Serial.println(latches->latchCount());
+
+    Serial.println("Pulling all States from Queue");
+    do {
+      latches->conversionBegin();
+      while(!latches->readyToFetchStates()) delay(10);
+      latches->fetchLatchStates();
+      for (uint8_t latch = 0; latch < latches->latchCount(); ++latch) {
+        Serial.print("  ");
+        Serial.print(latch);
+        Serial.print(": ");
+        Serial.print(latches->latchState(latch));
+        Serial.print("   ");
+      }
+      Serial.println();
+      latches->conversionEnd();
+    } while (latches->queueLength() > 0);
+
+    Serial.println("Enable Interrupt");
+    latches->setInterrupt(CoIC_Latch::INT_CTL::LOW_SIG);
+  }
 }
