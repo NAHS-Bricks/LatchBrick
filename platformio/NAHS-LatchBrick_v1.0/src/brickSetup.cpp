@@ -1,16 +1,17 @@
 #include <ESP8266WiFi.h>
 #include "brickSetup.h"
+#include "configData.h"
 #include "runtimeData.h"
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
+#include <nahs-Brick-Lib-RTCmem.h>
 
 
 //------------------------------------------
 // constructor
 brickSetup::brickSetup() {
   Serial.begin(115200);
-  cfgdat = new configData();
 }
 
 
@@ -136,13 +137,13 @@ void brickSetup::showBrickInfo() {
 // showConfig
 void brickSetup::showConfig() {
   Serial.print("SSID: ");
-  Serial.println(cfgdat->wifissid);
+  Serial.println(cfgdat.wifissid);
   Serial.print("PASS: ");
-  Serial.println(cfgdat->wifipass);
+  Serial.println(cfgdat.wifipass);
   Serial.print("URL: ");
-  Serial.println(cfgdat->url);
+  Serial.println(cfgdat.url);
   Serial.print("adc5V: ");
-  Serial.println(cfgdat->adc5V);
+  Serial.println(cfgdat.adc5V);
 }
 
 
@@ -150,7 +151,7 @@ void brickSetup::showConfig() {
 // saveConfig
 void brickSetup::saveConfig() {
   Serial.print("Saving config...");
-  cfgdat->save();
+  cfgdat.save();
   Serial.println(" done");
 }
 
@@ -159,9 +160,9 @@ void brickSetup::saveConfig() {
 // configureWifi
 void brickSetup::configureWifi() {
   Serial.print("SSID: ");
-  cfgdat->wifissid = readLine();
+  cfgdat.wifissid = readLine();
   Serial.print("Pass: ");
-  cfgdat->wifipass = readLine();
+  cfgdat.wifipass = readLine();
 }
 
 
@@ -178,7 +179,7 @@ void brickSetup::testWifi() {
     Serial.println('.');
   }
   Serial.print("Connecting WiFi");
-  WiFi.begin(cfgdat->wifissid.c_str(), cfgdat->wifipass.c_str());
+  WiFi.begin(cfgdat.wifissid.c_str(), cfgdat.wifipass.c_str());
  
   int i = 0;
   while (WiFi.status() != WL_CONNECTED) {
@@ -197,11 +198,11 @@ void brickSetup::testWifi() {
 //------------------------------------------
 // configureBrickServer
 void brickSetup::configureBrickServer() {
-  cfgdat->url = "http://";
+  cfgdat.url = "http://";
   Serial.print("Server: ");
-  cfgdat->url += readLine() + ':';
+  cfgdat.url += readLine() + ':';
   Serial.print("Port: ");
-  cfgdat->url += readLine();
+  cfgdat.url += readLine();
 }
 
 
@@ -234,7 +235,7 @@ void brickSetup::connectBrickServer() {
   // connect to brickserver and transmit data
   WiFiClient client;
   HTTPClient http;
-  http.begin(client, cfgdat->url);
+  http.begin(client, cfgdat.url);
   http.addHeader("Content-Type", "application/json");
   http.POST(httpPayload);
   DynamicJsonDocument feedback(1024);
@@ -269,42 +270,43 @@ void brickSetup::calibrateADC() {
   Serial.print("AVG: ");
   Serial.println(avg);
 
-  cfgdat->adc5V = (avg * 5.0) / tpb;
+  cfgdat.adc5V = (avg * 5.0) / tpb;
   Serial.print("Calculated value for 5.0 Volt: ");
-  Serial.println(cfgdat->adc5V);
+  Serial.println(cfgdat.adc5V);
 }
 
 
 //------------------------------------------
 // inspectRuntimeData
 void brickSetup::inspectRuntimeData() {
-  rundat = new runtimeData();
   //all
-  Serial.print("memWritten1: ");
-  Serial.println(rundat->vars.memWritten1);
-  Serial.print("memWritten2: ");
-  Serial.println(rundat->vars.memWritten2);
+  Serial.print("Stored CRC: ");
+  Serial.println(RTCmem.crcStored(), HEX);
+  Serial.print("Calced CRC: ");
+  Serial.println(RTCmem.crcCalculated(), HEX);
+  Serial.print("Initialized: ");
+  Serial.println(rundat.initialized);
   
   //requests
   Serial.println("requests:");
   Serial.print("  brickType: ");
-  Serial.println(rundat->vars.brickTypeRequested);
+  Serial.println(rundat.vars->brickTypeRequested);
   Serial.print("  features: ");
-  Serial.println(rundat->vars.featuresRequested);
+  Serial.println(rundat.vars->featuresRequested);
   Serial.print("  version: ");
-  Serial.println(rundat->vars.versionRequested);
+  Serial.println(rundat.vars->versionRequested);
   Serial.print("  batVoltage: ");
-  Serial.println(rundat->vars.batVoltageRequested);
+  Serial.println(rundat.vars->batVoltageRequested);
   
   //sleep
   Serial.println("sleep:");
   Serial.print("  deepSleepDelay: ");
-  Serial.println(rundat->vars.deepSleepDelay);
+  Serial.println(rundat.vars->deepSleepDelay);
   
   //bat
   Serial.println("bat:");
   Serial.print("  adc5V: ");
-  Serial.println(rundat->vars.adc5V);
+  Serial.println(rundat.vars->adc5V);
   
   //latch
 }

@@ -2,7 +2,6 @@
 #define BRICK_SETUP_H
 
 #include "global.h"
-#include "configData.h"
 
 class brickSetup {
     

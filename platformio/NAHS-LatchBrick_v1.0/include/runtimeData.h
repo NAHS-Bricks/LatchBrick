@@ -3,12 +3,11 @@
 
 #include <Arduino.h>
 #include "global.h"
+#include <nahs-Brick-Lib-RTCmem.h>
 
 class runtimeData {
-  public:
-    struct {
-      uint16_t memWritten1;
-      uint16_t memWritten2;
+  private:
+    typedef struct {
       bool brickTypeRequested;
       bool featuresRequested;
       bool versionRequested;
@@ -16,14 +15,19 @@ class runtimeData {
       uint16_t deepSleepDelay;
       uint16_t adc5V;  // same as in configData but this one can overwrite the one from configData
       
-    } vars;
+    } _vars;
+  public:
+    _vars* vars = RTCmem.registerData<_vars>();
     bool initialized;
 
   public:
     runtimeData();
-    void write();
+    void begin();
+
   private:
     void init();
 };
+
+extern runtimeData rundat;
 
 #endif // RUNTIME_DATA_H

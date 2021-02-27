@@ -8,12 +8,15 @@ class configData {
     public:
       configData();
       void save();
+      void begin();
 
     public:
       String wifissid;
       String wifipass;
       String url;
-      uint16_t adc5V;
+      uint16_t adc5V = 99;
 };
+
+extern configData cfgdat;
 
 #endif // CONFIG_DATA_H

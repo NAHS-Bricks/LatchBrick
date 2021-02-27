@@ -1,6 +1,7 @@
 #include "global.h"
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
+#include <nahs-Brick-Lib-RTCmem.h>
 #include "configData.h"
 #include "runtimeData.h"
 #include "brickSetup.h"
@@ -10,7 +11,8 @@
 void setup() {
   Wire.begin();
   pinMode(SETUP_PIN, INPUT_PULLUP);
-  delay(1);
+  cfgdat.begin();
+  rundat.begin();
   if (digitalRead(SETUP_PIN) == LOW) {
     brickSetup *bs = new brickSetup();
     bs->enter();
@@ -19,11 +21,9 @@ void setup() {
 
   //------------------------------------------
   //Here the normal Operation begins...
-  cfgdat = new configData();
   //WiFi.forceSleepWake();  // Enable WiFi Radio
   //delay(1);
-  WiFi.begin(cfgdat->wifissid.c_str(), cfgdat->wifipass.c_str());  // Connecting to WiFi can be done in background as it consumes a lot of time
-  rundat = new runtimeData();
+  WiFi.begin(cfgdat.wifissid.c_str(), cfgdat.wifipass.c_str());  // Connecting to WiFi can be done in background as it consumes a lot of time
 
   latches->begin(COIC_ADDR);
   latches->conversionBegin();  // Telling CoIC that we're going to read some Data later on and it can start preparing it's data, as this takes some time
@@ -38,7 +38,7 @@ void setup() {
 
   //------------------------------------------
   // if brick just started up, things have to be done
-  if(rundat->initialized) {
+  if(rundat.initialized) {
     y_array.add("i");
     latches->setInterrupt(CoIC_Latch::INT_CTL::LOW_SIG);
   }
@@ -54,41 +54,41 @@ void setup() {
 
   //------------------------------------------
   // read bat-voltage (if requested)
-  if (rundat->vars.batVoltageRequested) {
+  if (rundat.vars->batVoltageRequested) {
     json["b"] = readBatVoltage();
-    rundat->vars.batVoltageRequested = false;
+    rundat.vars->batVoltageRequested = false;
   }
 
 
   //------------------------------------------
   // deliver version (if requested)
-  if (rundat->vars.versionRequested) {
+  if (rundat.vars->versionRequested) {
     JsonArray v_array = json.createNestedArray("v");
     for (uint8_t i = 0; i < NUMBER_OF_VERSIONS; i++) {
       JsonArray version_array = v_array.createNestedArray();
       version_array.add(version_names[i]);
       version_array.add(version_numbers[i]);
     }
-    rundat->vars.versionRequested = false;
+    rundat.vars->versionRequested = false;
   }
 
 
   //------------------------------------------
   // deliver brickType (if requested)
-  if (rundat->vars.brickTypeRequested) {
+  if (rundat.vars->brickTypeRequested) {
     json["x"] = BRICK_TYPE;
-    rundat->vars.brickTypeRequested = false;
+    rundat.vars->brickTypeRequested = false;
   }
 
 
   //------------------------------------------
   // deliver features (if requested)
-  if (rundat->vars.featuresRequested) {
+  if (rundat.vars->featuresRequested) {
     JsonArray f_array = json.createNestedArray("f");
     for (uint8_t i = 0; i < NUMBER_OF_FEATURES; i++) {
       f_array.add(features[i]);
     }
-    rundat->vars.featuresRequested = false;
+    rundat.vars->featuresRequested = false;
   }
 
 
@@ -111,7 +111,7 @@ void setup() {
   serializeJson(json, httpPayload);
   WiFiClient client;
   HTTPClient http;
-  http.begin(client, cfgdat->url);
+  http.begin(client, cfgdat.url);
   http.addHeader("Content-Type", "application/json");
   http.POST(httpPayload);
   DynamicJsonDocument feedback(1024);
@@ -125,7 +125,7 @@ void setup() {
 
   //------------------------------------------
   // process feedback from BrickServer
-  if (feedback.containsKey("d")) rundat->vars.deepSleepDelay = feedback["d"].as<uint16_t>();
+  if (feedback.containsKey("d")) rundat.vars->deepSleepDelay = feedback["d"].as<uint16_t>();
   if (feedback.containsKey("t")) {
     JsonArray t_array = feedback["t"].as<JsonArray>();
     if (t_array.size() == latches->latchCount()) {
@@ -141,16 +141,16 @@ void setup() {
     for (JsonVariant value : feedback["r"].as<JsonArray>()) {
       switch(value.as<uint8_t>()) {
         case 1:
-          rundat->vars.versionRequested = true;
+          rundat.vars->versionRequested = true;
           break;
         case 2:
-          rundat->vars.featuresRequested = true;
+          rundat.vars->featuresRequested = true;
           break;
         case 3:
-          rundat->vars.batVoltageRequested = true;
+          rundat.vars->batVoltageRequested = true;
           break;
         case 5:
-          rundat->vars.brickTypeRequested = true;
+          rundat.vars->brickTypeRequested = true;
           break;
       }
     }
@@ -158,8 +158,8 @@ void setup() {
 
 
   //------------------------------------------
-  // write runtimeData
-  rundat->write();
+  // write RTCmem
+  RTCmem.write();
 
 
   //------------------------------------------
@@ -170,7 +170,7 @@ void setup() {
   //------------------------------------------
   // go to deepsleep
   //ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6, WAKE_RF_DISABLED);
-  ESP.deepSleep(rundat->vars.deepSleepDelay * 1e6);
+  ESP.deepSleep(rundat.vars->deepSleepDelay * 1e6);
   //delay(rundat->vars.deepSleepDelay * 1000);
   //ESP.deepSleep(1000);
 }

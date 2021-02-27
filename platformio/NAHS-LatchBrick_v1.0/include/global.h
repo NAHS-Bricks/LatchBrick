@@ -5,9 +5,6 @@
 #define NO_GLOBAL_COIC
 #include <CoIC.h>
 
-class configData;
-class runtimeData;
-
 #define COIC_ADDR 45
 
 #define SETUP_PIN D5
@@ -28,8 +25,6 @@ class runtimeData;
 extern const String version_names[NUMBER_OF_VERSIONS];
 extern const float version_numbers[NUMBER_OF_VERSIONS];
 extern const String features[NUMBER_OF_FEATURES];
-extern configData *cfgdat;
-extern runtimeData *rundat;
 extern CoIC_Latch *latches;
 
 float readBatVoltage();
