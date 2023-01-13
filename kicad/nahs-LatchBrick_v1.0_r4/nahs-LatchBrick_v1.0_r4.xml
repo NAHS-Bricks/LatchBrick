@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/nijo/workspace/nahs-Bricks-GitHub/LatchBrick/kicad/nahs-LatchBrick_v1.0_r4/nahs-LatchBrick_v1.0_r4.kicad_sch</source>
+    <date>Fr 13 Jan 2023 16:04:47 CET</date>
+    <tool>Eeschema 6.0.10-86aedd382b~118~ubuntu22.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>nahs-LatchBrick_v1.0_r4.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="BT1">
+      <value>HA_18650_EK</value>
+      <footprint>no_common:HA_18650_EK</footprint>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Storage">SK2 1x2</field>
+        <field name="StorageDesc">HA 18650 EK</field>
+        <field name="Value">HA_18650_EK</field>
+      </fields>
+      <libsource lib="no_common" part="HA_18650_EK" description="Single-cell battery"/>
+      <property name="Reference" value="BT"/>
+      <property name="Value" value="HA_18650_EK"/>
+      <property name="Storage" value="SK2 1x2"/>
+      <property name="StorageDesc" value="HA 18650 EK"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b875053-acd5-4c0e-b96a-1c693a0e3b27</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>10µF</value>
+      <footprint>no_common:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Datasheet"/>
+        <field name="Reference">C1</field>
+        <field name="Storage">MAG4</field>
+        <field name="Value">100nF</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="C1"/>
+      <property name="Value" value="100nF"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f8b26346-9941-4799-8274-7d22e70e82fd</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>10µF</value>
+      <footprint>no_common:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Datasheet"/>
+        <field name="Reference">C1</field>
+        <field name="Storage">MAG4</field>
+        <field name="Value">100nF</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="C1"/>
+      <property name="Value" value="100nF"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4c83b715-b5e1-410e-8305-1b6f1ca415c2</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>10µF</value>
+      <footprint>no_common:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Datasheet"/>
+        <field name="Reference">C1</field>
+        <field name="Storage">MAG4</field>
+        <field name="Value">100nF</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="C1"/>
+      <property name="Value" value="100nF"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d7b54b9b-fda9-4989-8178-58d7dbd437cd</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>100nF</value>
+      <footprint>no_common:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Datasheet"/>
+        <field name="Reference">C1</field>
+        <field name="Storage">MAG4</field>
+        <field name="Value">100nF</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="C1"/>
+      <property name="Value" value="100nF"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f52736dc-823a-4ed5-9b79-7e89ec895d64</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>10µF</value>
+      <footprint>no_common:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="Datasheet"/>
+        <field name="Reference">C1</field>
+        <field name="Storage">MAG4</field>
+        <field name="Value">100nF</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="C1"/>
+      <property name="Value" value="100nF"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>54b1b560-bd60-41d7-8a2d-b70a6349df4e</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>1N4148WL</value>
+      <footprint>Diode_SMD:D_SOD-123F</footprint>
+      <fields>
+        <field name="Storage">MAG3</field>
+        <field name="StorageDesc">Diode 1N4148WL</field>
+      </fields>
+      <libsource lib="no_common" part="1N4148WL" description="100V 0.15A standard switching diode"/>
+      <property name="Storage" value="MAG3"/>
+      <property name="StorageDesc" value="Diode 1N4148WL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>deee4593-21c5-47a2-84b3-08c1c6e8e9ff</tstamps>
+    </comp>
+    <comp ref="FID1">
+      <value>Fiducial</value>
+      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3ac789e3-8dad-4774-9f45-f7b567a1a7d0</tstamps>
+    </comp>
+    <comp ref="FID2">
+      <value>Fiducial</value>
+      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b3d7a8df-86d1-44bd-a74e-a6745b0ca828</tstamps>
+    </comp>
+    <comp ref="FID3">
+      <value>Fiducial</value>
+      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9ec4fab9-2f73-44ac-8952-7f9d26a2d6d6</tstamps>
+    </comp>
+    <comp ref="IC1">
+      <value>ESP12S</value>
+      <footprint>no_expressif:ESP12S</footprint>
+      <fields>
+        <field name="Reference">IC1</field>
+        <field name="Storage">SK1 3x5</field>
+        <field name="StorageDesc">ESP12-F</field>
+        <field name="Value">ESP12S</field>
+      </fields>
+      <libsource lib="no_expressif" part="ESP12S" description=""/>
+      <property name="Reference" value="IC1"/>
+      <property name="Value" value="ESP12S"/>
+      <property name="Storage" value="SK1 3x5"/>
+      <property name="StorageDesc" value="ESP12-F"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2946e53a-880e-444c-b6f6-7f58087f9b0e</tstamps>
+    </comp>
+    <comp ref="IC2">
+      <value>ATTINY212</value>
+      <footprint>no_common:SOIC8</footprint>
+      <fields>
+        <field name="Reference">IC?</field>
+        <field name="Storage">MAG4</field>
+        <field name="StorageDesc">ATtiny212</field>
+        <field name="Value">ATTINY212</field>
+      </fields>
+      <libsource lib="no_microchip" part="ATTINY212" description=""/>
+      <property name="Reference" value="IC?"/>
+      <property name="Value" value="ATTINY212"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="StorageDesc" value="ATtiny212"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>de1d0ba0-c5e1-4fb8-9eac-2cf806ded857</tstamps>
+    </comp>
+    <comp ref="IC3">
+      <value>ATTINY414</value>
+      <footprint>no_common:SOIC14</footprint>
+      <fields>
+        <field name="Storage">MAG4</field>
+        <field name="StorageDesc">ATtiny414</field>
+      </fields>
+      <libsource lib="no_microchip" part="ATTINY414" description=""/>
+      <property name="Storage" value="MAG4"/>
+      <property name="StorageDesc" value="ATtiny414"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>99c6f254-5fcb-4c19-afcb-b0c745235751</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>Brick-Interface-V4</value>
+      <footprint>no_brick_interface:Brick_Interface_V4_inset</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Reference">J</field>
+        <field name="Value">Brick-Interface-V4</field>
+      </fields>
+      <libsource lib="no_brick_interface" part="Brick-Interface-V4" description=""/>
+      <property name="Reference" value="J"/>
+      <property name="Value" value="Brick-Interface-V4"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>33e611ea-006a-4319-8e19-e53e9a662fc6</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>USB_B_Mini</value>
+      <footprint>Connector_USB:USB_Micro-B_Amphenol_10118194_Horizontal</footprint>
+      <fields>
+        <field name="Storage">SK2 1x3</field>
+        <field name="StorageDesc">MicroUSB TypeB</field>
+      </fields>
+      <libsource lib="Connector" part="USB_B_Mini" description="USB Mini Type B connector"/>
+      <property name="Storage" value="SK2 1x3"/>
+      <property name="StorageDesc" value="MicroUSB TypeB"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>37c4d311-ec8e-417b-aba7-859c05b65d7b</tstamps>
+    </comp>
+    <comp ref="JP1">
+      <value>PINHD_1X03</value>
+      <footprint>no_pinhd:PINHD_1X03_2.54_1mm_Round</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Desc">PS</field>
+        <field name="Reference">JP1</field>
+        <field name="Value">PINHD_1X03</field>
+      </fields>
+      <libsource lib="no_pinhd" part="PINHD_1X03" description=""/>
+      <property name="Reference" value="JP1"/>
+      <property name="Value" value="PINHD_1X03"/>
+      <property name="Desc" value="PS"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6eee5d3c-5ddb-4e02-ba96-6197435dd0af f33559f7-dbf0-436b-987e-6f763b6852df 6a3a2d4f-2bac-4f5c-9a24-2412b71b396d</tstamps>
+    </comp>
+    <comp ref="JP2">
+      <value>PINHD_1X04</value>
+      <footprint>no_pinhd:PINHD_1X04_2.54_1mm_Round</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Desc">UART</field>
+        <field name="Reference">JP2</field>
+        <field name="Value">PINHD_1X04</field>
+      </fields>
+      <libsource lib="no_pinhd" part="PINHD_1X04" description=""/>
+      <property name="Desc" value="UART"/>
+      <property name="Reference" value="JP2"/>
+      <property name="Value" value="PINHD_1X04"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>72c6f4af-e731-490e-9dd2-c1475c7a76a6 9a4054e0-cdb2-478e-85f5-be5a6bffd6a4 6806bbf2-c6cd-4c5f-a8b1-a33e25cf4c75 14341329-53ee-4662-b181-8dbbf047a5a1</tstamps>
+    </comp>
+    <comp ref="JP3">
+      <value>PINHD_1X01</value>
+      <footprint>no_pinhd:PINHD_1X01_2.54_1mm_Square</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Desc">TPB+</field>
+        <field name="Reference">JP3</field>
+        <field name="Value">PINHD_1X01</field>
+      </fields>
+      <libsource lib="no_pinhd" part="PINHD_1X01" description=""/>
+      <property name="Desc" value="TPB+"/>
+      <property name="Reference" value="JP3"/>
+      <property name="Value" value="PINHD_1X01"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>01abe120-8394-46fa-acb3-595fc9362337</tstamps>
+    </comp>
+    <comp ref="JP4">
+      <value>PINHD_1X01</value>
+      <footprint>no_pinhd:PINHD_1X01_2.54_1mm_Square</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Desc">TPB-</field>
+        <field name="Reference">JP4</field>
+        <field name="Value">PINHD_1X01</field>
+      </fields>
+      <libsource lib="no_pinhd" part="PINHD_1X01" description=""/>
+      <property name="Desc" value="TPB-"/>
+      <property name="Reference" value="JP4"/>
+      <property name="Value" value="PINHD_1X01"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c2584404-5fe2-4d2e-bafa-87a105f4ef51</tstamps>
+    </comp>
+    <comp ref="JP5">
+      <value>PINHD_1X03</value>
+      <footprint>no_pinhd:PINHD_1X03_2.54_1mm_Round</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Desc">UPDI1</field>
+        <field name="Reference">JP5</field>
+        <field name="Value">PINHD_1X03</field>
+      </fields>
+      <libsource lib="no_pinhd" part="PINHD_1X03" description=""/>
+      <property name="Desc" value="UPDI1"/>
+      <property name="Reference" value="JP5"/>
+      <property name="Value" value="PINHD_1X03"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a939f427-8506-43ed-89b3-3b4d93227b2b de8b2d6c-35bb-42fd-8224-b876416f02f5 4c2363d0-6086-4f9e-ae4a-e925968f57e6</tstamps>
+    </comp>
+    <comp ref="JP6">
+      <value>PINHD_1X03</value>
+      <footprint>no_pinhd:PINHD_1X03_2.54_1mm_Round</footprint>
+      <libsource lib="no_pinhd" part="PINHD_1X03" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5d30f27e-cd79-42cd-865a-b7398f3a0623 34ca215f-03db-437f-90de-5c7e0445acd8 22c3290a-6f0f-452c-a945-8798b4c863ce</tstamps>
+    </comp>
+    <comp ref="JP7">
+      <value>PINHD_1X03</value>
+      <footprint>no_pinhd:PINHD_1X03_2.54_1mm_Round</footprint>
+      <libsource lib="no_pinhd" part="PINHD_1X03" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>adac5442-8f19-4f9a-b90f-642d763c1283 7554ad0b-c188-4925-87f2-0ee957786c11 7424c2d7-1686-457b-b4d7-d5c224f80215</tstamps>
+    </comp>
+    <comp ref="JP8">
+      <value>PINHD_1X03</value>
+      <footprint>no_pinhd:PINHD_1X03_2.54_1mm_Round</footprint>
+      <libsource lib="no_pinhd" part="PINHD_1X03" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2141fa96-092a-4a7a-b062-c0b1c510ec2d d4120219-fe0f-45a7-a543-bbc9b09be583 1828fc51-c1b9-4f8a-b146-f328af0997b0</tstamps>
+    </comp>
+    <comp ref="JP9">
+      <value>PINHD_1x02</value>
+      <footprint>no_pinhd:PINHD_1X02_2.54_1mm_Round</footprint>
+      <libsource lib="no_pinhd" part="PINHD_1x02" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db6b129b-0c4d-4fce-9842-6374b4eb5e1a bb11f48a-b357-4f1a-a4a5-b515d547c490</tstamps>
+    </comp>
+    <comp ref="L1">
+      <value>2.2µH</value>
+      <footprint>no_common:L_1210_3225Metric</footprint>
+      <fields>
+        <field name="Datasheet"/>
+        <field name="Reference">L1</field>
+        <field name="Storage">MAG5</field>
+        <field name="StorageDesc">Inductor 2,2µH</field>
+        <field name="Value">2.2µH</field>
+      </fields>
+      <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="L1"/>
+      <property name="Value" value="2.2µH"/>
+      <property name="Storage" value="MAG5"/>
+      <property name="StorageDesc" value="Inductor 2,2µH"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e4a0028d-ed43-4ccc-912d-3fe7f701cb43</tstamps>
+    </comp>
+    <comp ref="LED1">
+      <value>Green</value>
+      <footprint>no_common:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG4</field>
+        <field name="StorageDesc">LED Green</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="StorageDesc" value="LED Green"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f434dbac-2c4b-415d-955b-17b8b564e784</tstamps>
+    </comp>
+    <comp ref="LED2">
+      <value>Red</value>
+      <footprint>no_common:LED_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG4</field>
+        <field name="StorageDesc">LED OrangeRed</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Storage" value="MAG4"/>
+      <property name="StorageDesc" value="LED OrangeRed"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c6506162-6157-445a-88a2-34966e438328</tstamps>
+    </comp>
+    <comp ref="LOGO1">
+      <value>brick_logo</value>
+      <footprint>no_brick_logo:x8mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+      </fields>
+      <libsource lib="no_brick_logo" part="brick_logo" description=""/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec50e7ca-8783-437f-813d-78ebd762510c</tstamps>
+    </comp>
+    <comp ref="LOGO2">
+      <value>brick_logo</value>
+      <footprint>no_brick_logo:x17mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+      </fields>
+      <libsource lib="no_brick_logo" part="brick_logo" description=""/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4d1055fe-a1e2-4873-8ba7-339e24197e7c</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>8205A</value>
+      <footprint>no_common:TSSOP8_MS</footprint>
+      <fields>
+        <field name="Storage">MAG5</field>
+        <field name="StorageDesc">8205A</field>
+      </fields>
+      <libsource lib="no_common" part="8205A" description=""/>
+      <property name="Storage" value="MAG5"/>
+      <property name="StorageDesc" value="8205A"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>217f7fdc-8ced-4971-abb3-d7a8ed4f9f9d</tstamps>
+    </comp>
+    <comp ref="Q3">
+      <value>CJ2302</value>
+      <footprint>no_common:SOT23</footprint>
+      <fields>
+        <field name="Storage">MAG3</field>
+        <field name="StorageDesc">N-FET CJ2302</field>
+      </fields>
+      <libsource lib="no_common" part="CJ2302" description=""/>
+      <property name="Storage" value="MAG3"/>
+      <property name="StorageDesc" value="N-FET CJ2302"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d17a1f97-0bcd-4ee2-9ee9-acd59c1de959</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>MMBT2907A</value>
+      <footprint>no_common:SOT23</footprint>
+      <fields>
+        <field name="Storage">MAG3</field>
+        <field name="StorageDesc">PNP MMBT2907A</field>
+      </fields>
+      <libsource lib="no_common" part="MMBT2907A" description="Small Signal PNP Transistor"/>
+      <property name="Storage" value="MAG3"/>
+      <property name="StorageDesc" value="PNP MMBT2907A"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d2a1bf55-144b-4315-8317-430ab44b8451</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>1k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d77d925a-ad94-430b-a2cd-1d945fe6d9ba</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0419d16b-8ba7-452b-bccc-5d684db04530</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>10k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f6f027c0-638a-4560-95ef-f80ed32f0572</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>3.9k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>149528b2-cae0-43c0-9a3b-db69138b813b</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>3.9k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d8e17f55-8c5a-4bc0-8e00-646694d23af6</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>10k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f5bb697-7f1d-4d13-9f13-719b79bbc16d</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>2.7M</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>78598e30-5d4e-402d-848c-00f1d494f896</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>590k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f8a8f6d-73c1-4b6c-b8aa-5e2956f83c20</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>100</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9249f775-ac77-4653-9aab-d6e9b1c41d27</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>1k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>486d6bd1-ebd2-4679-b002-650059885aeb</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>0.4</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00b0eac4-81c6-4680-936d-c8a4954674a4</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>10k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3a614e5e-1dd3-40b1-8e8c-5c75a1f61621</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>1k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8017f902-67c4-44e0-89d6-754baca9bd61</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>3k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>adf456a6-a54f-4e91-add1-844d1d615465</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>1k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5503805c-93e6-476c-9737-e98cd67ed49e</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>10k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>99c010f5-b455-4ab9-a701-1abb9b47c443</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>10k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d4ba5cc2-ce78-4fbf-a7ae-ab08d051867b</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>130k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e948ba3e-02b9-4d85-8e11-cbb4387bf19c</tstamps>
+    </comp>
+    <comp ref="R21">
+      <value>590k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>65e58e51-eb56-4ce6-a1ae-084b5093af97</tstamps>
+    </comp>
+    <comp ref="R22">
+      <value>6,04k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5cd2d36c-61d7-413f-84d3-6437ab741e58</tstamps>
+    </comp>
+    <comp ref="R23">
+      <value>12k</value>
+      <footprint>no_common:R_0805_2012Metric</footprint>
+      <fields>
+        <field name="Storage">MAG2</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Storage" value="MAG2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bc330e6e-a22b-4bc7-982a-f5e22e6c61e1</tstamps>
+    </comp>
+    <comp ref="SJ1">
+      <value>LED-DIS</value>
+      <footprint>Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Datasheet"/>
+        <field name="Reference">SJ1</field>
+        <field name="Value">LED-DIS</field>
+      </fields>
+      <libsource lib="Jumper" part="SolderJumper_2_Open" description="Solder Jumper, 2-pole, open"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="SJ1"/>
+      <property name="Value" value="LED-DIS"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0cd20cf8-9650-4afd-b2cc-7de27926ca2c</tstamps>
+    </comp>
+    <comp ref="SJ2">
+      <value>400</value>
+      <footprint>Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Datasheet"/>
+        <field name="Reference">SJ1</field>
+        <field name="Value">RHT-ALT</field>
+      </fields>
+      <libsource lib="Jumper" part="SolderJumper_2_Bridged" description="Solder Jumper, 2-pole, closed/bridged"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="SJ1"/>
+      <property name="Value" value="RHT-ALT"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>61ca6583-23bd-4435-8d55-2c3570ae1315</tstamps>
+    </comp>
+    <comp ref="SJ3">
+      <value>200</value>
+      <footprint>Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Datasheet"/>
+        <field name="Reference">SJ1</field>
+        <field name="Value">RHT-ALT</field>
+      </fields>
+      <libsource lib="Jumper" part="SolderJumper_2_Bridged" description="Solder Jumper, 2-pole, closed/bridged"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="SJ1"/>
+      <property name="Value" value="RHT-ALT"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0113c449-c19b-45e9-b611-c9bf763ea718</tstamps>
+    </comp>
+    <comp ref="SJ4">
+      <value>100</value>
+      <footprint>Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Datasheet"/>
+        <field name="Reference">SJ1</field>
+        <field name="Value">RHT-ALT</field>
+      </fields>
+      <libsource lib="Jumper" part="SolderJumper_2_Bridged" description="Solder Jumper, 2-pole, closed/bridged"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="SJ1"/>
+      <property name="Value" value="RHT-ALT"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>325b3ff3-059e-4a5f-ae8c-61a05ce36e77</tstamps>
+    </comp>
+    <comp ref="SJ5">
+      <value>CHRG-DIS</value>
+      <footprint>Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm</footprint>
+      <fields>
+        <field name="DNP">true</field>
+        <field name="Datasheet"/>
+        <field name="Reference">SJ1</field>
+        <field name="Value">LED-DIS</field>
+      </fields>
+      <libsource lib="Jumper" part="SolderJumper_2_Open" description="Solder Jumper, 2-pole, open"/>
+      <property name="Datasheet" value=""/>
+      <property name="Reference" value="SJ1"/>
+      <property name="Value" value="LED-DIS"/>
+      <property name="DNP" value="true"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67b11bd6-880f-4e42-8ecd-f64409eb125c</tstamps>
+    </comp>
+    <comp ref="SW1">
+      <value>KMR_231_G_LFS</value>
+      <footprint>no_common:KMR_231_G_LFS</footprint>
+      <fields>
+        <field name="Reference">SW1</field>
+        <field name="Storage">SK1 2x2</field>
+        <field name="StorageDesc">KMR 231 G LFS</field>
+        <field name="Value">KMR_231_G_LFS</field>
+      </fields>
+      <libsource lib="no_common" part="KMR_231_G_LFS" description=""/>
+      <property name="Reference" value="SW1"/>
+      <property name="Value" value="KMR_231_G_LFS"/>
+      <property name="Storage" value="SK1 2x2"/>
+      <property name="StorageDesc" value="KMR 231 G LFS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a89841f7-5296-41bf-b4da-5323a9103218</tstamps>
+    </comp>
+    <comp ref="SW2">
+      <value>SSSS820101</value>
+      <footprint>no_common:SSSS820101</footprint>
+      <fields>
+        <field name="Storage">SK1 2x2</field>
+        <field name="StorageDesc">SSSS820101</field>
+      </fields>
+      <libsource lib="no_common" part="SSSS820101" description=""/>
+      <property name="Storage" value="SK1 2x2"/>
+      <property name="StorageDesc" value="SSSS820101"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ed57343b-103e-4c59-96d3-fa2150d10423</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>ZD8028IB5TR</value>
+      <footprint>no_common:SOT23-5</footprint>
+      <fields>
+        <field name="Reference">U1</field>
+        <field name="Storage">MAG3</field>
+        <field name="StorageDesc">LDO ZD8028IB5TR</field>
+        <field name="Value">ZD8028IB5TR</field>
+      </fields>
+      <libsource lib="no_common" part="ZD8028IB5TR" description=""/>
+      <property name="Reference" value="U1"/>
+      <property name="Value" value="ZD8028IB5TR"/>
+      <property name="Storage" value="MAG3"/>
+      <property name="StorageDesc" value="LDO ZD8028IB5TR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>625b194d-8fc3-413b-b414-0beeb0493b56</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>DW01A</value>
+      <footprint>no_common:SOT23-6</footprint>
+      <fields>
+        <field name="Storage">MAG5</field>
+        <field name="StorageDesc">DW01A</field>
+      </fields>
+      <libsource lib="no_common" part="DW01A" description=""/>
+      <property name="Storage" value="MAG5"/>
+      <property name="StorageDesc" value="DW01A"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>abd6a2d3-713e-4245-af4c-64d5822de295</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>TP4056</value>
+      <footprint>no_common:SOIC8_TP</footprint>
+      <fields>
+        <field name="Storage">MAG5</field>
+        <field name="StorageDesc">TP4056</field>
+      </fields>
+      <libsource lib="no_common" part="TP4056" description=""/>
+      <property name="Storage" value="MAG5"/>
+      <property name="StorageDesc" value="TP4056"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="nahs-LatchBrick_v1.0_r4.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9d84c56e-537c-4f1b-863f-beda93afc448</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="USB_B_Mini">
+      <description>USB Mini Type B connector</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>USB*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_B_Mini</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="power_out"/>
+        <pin num="2" name="D-" type="bidirectional"/>
+        <pin num="3" name="D+" type="bidirectional"/>
+        <pin num="4" name="ID" type="passive"/>
+        <pin num="5" name="GND" type="power_out"/>
+        <pin num="6" name="Shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="L">
+      <description>Inductor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Jumper" part="SolderJumper_2_Bridged">
+      <description>Solder Jumper, 2-pole, closed/bridged</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SolderJumper*Bridged*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">SolderJumper_2_Bridged</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Jumper" part="SolderJumper_2_Open">
+      <description>Solder Jumper, 2-pole, open</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SolderJumper*Open*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">SolderJumper_2_Open</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="Fiducial">
+      <description>Fiducial Marker</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Fiducial*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">FID</field>
+        <field name="Value">Fiducial</field>
+        <field name="Datasheet">~</field>
+      </fields>
+    </libpart>
+    <libpart lib="no_brick_interface" part="Brick-Interface-V4">
+      <footprints>
+        <fp>Brick_Interface_V4*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Brick-Interface-V4</field>
+        <field name="Footprint">no_brick_interface:Brick_Interface_V4_inset</field>
+      </fields>
+      <pins>
+        <pin num="A1" name="UTIL5" type="input"/>
+        <pin num="A2" name="UTIL6" type="input"/>
+        <pin num="A3" name="UTIL7" type="input"/>
+        <pin num="A4" name="UTIL8" type="input"/>
+        <pin num="A9" name="SCL" type="input"/>
+        <pin num="A10" name="UPDI2" type="input"/>
+        <pin num="A11" name="UPDI1" type="input"/>
+        <pin num="A12" name="RX" type="input"/>
+        <pin num="A13" name="TX" type="input"/>
+        <pin num="A14" name="CD" type="input"/>
+        <pin num="A15" name="GND" type="input"/>
+        <pin num="A16" name="GND" type="input"/>
+        <pin num="A17" name="GND" type="input"/>
+        <pin num="A18" name="GND" type="input"/>
+        <pin num="B1" name="UTIL1" type="input"/>
+        <pin num="B2" name="UTIL2" type="input"/>
+        <pin num="B3" name="UTIL3" type="input"/>
+        <pin num="B4" name="UTIL4" type="input"/>
+        <pin num="B9" name="SDA" type="input"/>
+        <pin num="B10" name="UPDI3" type="input"/>
+        <pin num="B11" name="3.3V" type="input"/>
+        <pin num="B12" name="PROG" type="input"/>
+        <pin num="B13" name="SETUP" type="input"/>
+        <pin num="B14" name="RST" type="input"/>
+        <pin num="B15" name="5V" type="input"/>
+        <pin num="B16" name="5V" type="input"/>
+        <pin num="B17" name="5V" type="input"/>
+        <pin num="B18" name="5V" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_brick_logo" part="brick_logo">
+      <footprints>
+        <fp>no_brick_logo:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">LOGO</field>
+        <field name="Value">brick_logo</field>
+      </fields>
+    </libpart>
+    <libpart lib="no_common" part="1N4148WL">
+      <description>100V 0.15A standard switching diode</description>
+      <footprints>
+        <fp>*SDO?123*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">1N4148WL</field>
+        <field name="Footprint">Diode_SMD:D_SOD-123F</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="8205A">
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">8205A</field>
+        <field name="Footprint">no_common:TSSOP8_MS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="D1" type="input"/>
+        <pin num="2" name="S1" type="input"/>
+        <pin num="3" name="G1" type="input"/>
+        <pin num="4" name="G2" type="input"/>
+        <pin num="5" name="S2" type="input"/>
+        <pin num="6" name="D2" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="CJ2302">
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">CJ2302</field>
+        <field name="Footprint">no_common:SOT23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="DW01A">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">DW01A</field>
+        <field name="Footprint">no_common:SOT23-6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OD" type="input"/>
+        <pin num="2" name="CS" type="input"/>
+        <pin num="3" name="OC" type="input"/>
+        <pin num="4" name="TD" type="input"/>
+        <pin num="5" name="VCC" type="input"/>
+        <pin num="6" name="GND" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="HA_18650_EK">
+      <description>Single-cell battery</description>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">HA_18650_EK</field>
+        <field name="Footprint">no_common:HA_18650_EK</field>
+      </fields>
+      <pins>
+        <pin num="M" name="-" type="passive"/>
+        <pin num="P" name="+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="KMR_231_G_LFS">
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">KMR_231_G_LFS</field>
+        <field name="Footprint">no_common:KMR_231_G_LFS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="input"/>
+        <pin num="4" name="" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="MMBT2907A">
+      <description>Small Signal PNP Transistor</description>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">MMBT2907A</field>
+        <field name="Footprint">no_common:SOT23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="input"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="SSSS820101">
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SSSS820101</field>
+        <field name="Footprint">no_common:SSSS820101</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="input"/>
+        <pin num="4" name="" type="input"/>
+        <pin num="5" name="" type="input"/>
+        <pin num="6" name="" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="TP4056">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TP4056</field>
+        <field name="Footprint">no_common:SOIC8_TP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="TEMP" type="input"/>
+        <pin num="2" name="PROG" type="input"/>
+        <pin num="3" name="GND" type="input"/>
+        <pin num="4" name="VCC" type="input"/>
+        <pin num="5" name="BAT" type="input"/>
+        <pin num="6" name="STDBY" type="input"/>
+        <pin num="7" name="CHRG" type="input"/>
+        <pin num="8" name="CE" type="input"/>
+        <pin num="T1" name="GND" type="input"/>
+        <pin num="T2" name="GND" type="input"/>
+        <pin num="T3" name="GND" type="input"/>
+        <pin num="T4" name="GND" type="input"/>
+        <pin num="T5" name="GND" type="input"/>
+        <pin num="T6" name="GND" type="input"/>
+        <pin num="T7" name="GND" type="input"/>
+        <pin num="T8" name="GND" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_common" part="ZD8028IB5TR">
+      <footprints>
+        <fp>SOT?23-5*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ZD8028IB5TR</field>
+        <field name="Footprint">no_common:SOT23-5</field>
+      </fields>
+      <pins>
+        <pin num="1" name="EN" type="input"/>
+        <pin num="2" name="GND" type="input"/>
+        <pin num="3" name="SW" type="input"/>
+        <pin num="4" name="IN" type="input"/>
+        <pin num="5" name="FB" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_expressif" part="ESP12S">
+      <fields>
+        <field name="Reference">IC</field>
+        <field name="Value">ESP12S</field>
+        <field name="Footprint">no_expressif:ESP12S</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~{RST}" type="input"/>
+        <pin num="2" name="ADC" type="input"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="D0" type="input"/>
+        <pin num="5" name="D5" type="input"/>
+        <pin num="6" name="D6" type="input"/>
+        <pin num="7" name="D7" type="input"/>
+        <pin num="8" name="VCC" type="input"/>
+        <pin num="15" name="GND" type="input"/>
+        <pin num="16" name="D8" type="input"/>
+        <pin num="17" name="D4" type="input"/>
+        <pin num="18" name="D3" type="input"/>
+        <pin num="19" name="D2" type="input"/>
+        <pin num="20" name="D1" type="input"/>
+        <pin num="21" name="RXD0" type="input"/>
+        <pin num="22" name="TXD0" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_microchip" part="ATTINY212">
+      <fields>
+        <field name="Reference">IC</field>
+        <field name="Value">ATTINY212</field>
+        <field name="Footprint">no_common:SOIC8</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="input"/>
+        <pin num="2" name="PA6" type="input"/>
+        <pin num="3" name="PA7" type="input"/>
+        <pin num="4" name="PA1" type="input"/>
+        <pin num="5" name="PA2" type="input"/>
+        <pin num="6" name="RST/UPDI" type="input"/>
+        <pin num="7" name="PA3" type="input"/>
+        <pin num="8" name="GND" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_microchip" part="ATTINY414">
+      <fields>
+        <field name="Reference">IC</field>
+        <field name="Value">ATTINY414</field>
+        <field name="Footprint">no_common:SOIC14</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="input"/>
+        <pin num="2" name="PA4" type="input"/>
+        <pin num="3" name="PA5" type="input"/>
+        <pin num="4" name="PA6" type="input"/>
+        <pin num="5" name="PA7" type="input"/>
+        <pin num="6" name="PB3" type="input"/>
+        <pin num="7" name="PB2" type="input"/>
+        <pin num="8" name="PB1" type="input"/>
+        <pin num="9" name="PB0" type="input"/>
+        <pin num="10" name="RST/UPDI" type="input"/>
+        <pin num="11" name="PA1" type="input"/>
+        <pin num="12" name="PA2" type="input"/>
+        <pin num="13" name="PA3" type="input"/>
+        <pin num="14" name="GND" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_pinhd" part="PINHD_1X01">
+      <footprints>
+        <fp>PINHD_1X01_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">PINHD_1X01</field>
+        <field name="Footprint">no_pinhd:PINHD_1X01_2.54_1mm_Round</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_pinhd" part="PINHD_1X03">
+      <footprints>
+        <fp>PINHD_1X03_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">PINHD_1X03</field>
+        <field name="Footprint">no_pinhd:PINHD_1X03_2.54_1mm_Round</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_pinhd" part="PINHD_1X04">
+      <footprints>
+        <fp>PINHD_1X04_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">PINHD_1X04</field>
+        <field name="Footprint">no_pinhd:PINHD_1X04_2.54_1mm_Round</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="input"/>
+        <pin num="4" name="" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="no_pinhd" part="PINHD_1x02">
+      <footprints>
+        <fp>PINHD_1X02_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">PINHD_1x02</field>
+        <field name="Footprint">no_pinhd:PINHD_1X02_2.54_1mm_Round</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/symbols//Connector.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols//Device.kicad_sym</uri>
+    </library>
+    <library logical="Jumper">
+      <uri>/usr/share/kicad/symbols//Jumper.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>/usr/share/kicad/symbols//Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="no_brick_interface">
+      <uri>/home/nijo/avr-projekte/KiKaLib/no_brick_interface.kicad_sym</uri>
+    </library>
+    <library logical="no_brick_logo">
+      <uri>/home/nijo/avr-projekte/KiKaLib/no_brick_logo.kicad_sym</uri>
+    </library>
+    <library logical="no_common">
+      <uri>/home/nijo/avr-projekte/KiKaLib/no_common.kicad_sym</uri>
+    </library>
+    <library logical="no_expressif">
+      <uri>/home/nijo/avr-projekte/KiKaLib/no_expressif.kicad_sym</uri>
+    </library>
+    <library logical="no_microchip">
+      <uri>/home/nijo/avr-projekte/KiKaLib/no_microchip.kicad_sym</uri>
+    </library>
+    <library logical="no_pinhd">
+      <uri>/home/nijo/avr-projekte/KiKaLib/no_pinhd.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3V3">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="IC1" pin="8" pinfunction="VCC" pintype="input"/>
+      <node ref="IC2" pin="1" pinfunction="VCC" pintype="input"/>
+      <node ref="IC3" pin="1" pinfunction="VCC" pintype="input"/>
+      <node ref="J1" pin="B11" pinfunction="3.3V" pintype="input"/>
+      <node ref="JP5" pin="1" pintype="input"/>
+      <node ref="L1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="SJ1" pin="1" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="2" name="/CHRG+">
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="LED1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="VCC" pintype="input"/>
+    </net>
+    <net code="3" name="A0">
+      <node ref="IC1" pin="2" pinfunction="ADC" pintype="input"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+    </net>
+    <net code="4" name="BAT+">
+      <node ref="BT1" pin="P" pinfunction="+" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="LED2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q4" pin="2" pinfunction="E" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="SW2" pin="6" pintype="input"/>
+      <node ref="U4" pin="5" pinfunction="BAT" pintype="input"/>
+    </net>
+    <net code="5" name="BAT-">
+      <node ref="BT1" pin="M" pinfunction="-" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+    </net>
+    <net code="6" name="BOOT1">
+      <node ref="IC1" pin="17" pinfunction="D4" pintype="input"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="SJ1" pin="2" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="7" name="BOOT2">
+      <node ref="IC1" pin="16" pinfunction="D8" pintype="input"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+    </net>
+    <net code="8" name="CD">
+      <node ref="J1" pin="A14" pinfunction="CD" pintype="input"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="SJ5" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="U4" pin="8" pinfunction="CE" pintype="input"/>
+    </net>
+    <net code="9" name="CHRG">
+      <node ref="IC1" pin="6" pinfunction="D6" pintype="input"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="U4" pin="7" pinfunction="CHRG" pintype="input"/>
+    </net>
+    <net code="10" name="D+">
+      <node ref="J2" pin="3" pinfunction="D+" pintype="bidirectional"/>
+    </net>
+    <net code="11" name="D-">
+      <node ref="J2" pin="2" pinfunction="D-" pintype="bidirectional"/>
+    </net>
+    <net code="12" name="EN">
+      <node ref="IC1" pin="3" pinfunction="EN" pintype="input"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+    </net>
+    <net code="13" name="GND">
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="IC1" pin="15" pinfunction="GND" pintype="input"/>
+      <node ref="IC2" pin="8" pinfunction="GND" pintype="input"/>
+      <node ref="IC3" pin="14" pinfunction="GND" pintype="input"/>
+      <node ref="JP1" pin="2" pintype="input"/>
+      <node ref="JP4" pin="1" pintype="input"/>
+      <node ref="JP5" pin="2" pintype="input"/>
+      <node ref="JP6" pin="2" pintype="input"/>
+      <node ref="JP7" pin="2" pintype="input"/>
+      <node ref="JP8" pin="2" pintype="input"/>
+      <node ref="JP9" pin="2" pintype="input"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="1" pintype="input"/>
+      <node ref="SW1" pin="2" pintype="input"/>
+      <node ref="SW2" pin="2" pintype="input"/>
+      <node ref="U1" pin="2" pinfunction="GND" pintype="input"/>
+    </net>
+    <net code="14" name="IN+">
+      <node ref="J1" pin="B15" pinfunction="5V" pintype="input"/>
+      <node ref="J1" pin="B16" pinfunction="5V" pintype="input"/>
+      <node ref="J1" pin="B17" pinfunction="5V" pintype="input"/>
+      <node ref="J1" pin="B18" pinfunction="5V" pintype="input"/>
+      <node ref="J2" pin="1" pinfunction="VBUS" pintype="power_out"/>
+      <node ref="JP2" pin="4" pintype="input"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="SW2" pin="4" pintype="input"/>
+    </net>
+    <net code="15" name="IN-">
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="J1" pin="A15" pinfunction="GND" pintype="input"/>
+      <node ref="J1" pin="A16" pinfunction="GND" pintype="input"/>
+      <node ref="J1" pin="A17" pinfunction="GND" pintype="input"/>
+      <node ref="J1" pin="A18" pinfunction="GND" pintype="input"/>
+      <node ref="J2" pin="5" pinfunction="GND" pintype="power_out"/>
+      <node ref="JP2" pin="1" pintype="input"/>
+      <node ref="Q1" pin="2" pinfunction="S1" pintype="input"/>
+      <node ref="Q3" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="SJ2" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="SJ3" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="SJ4" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="SJ5" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="SW2" pin="3" pintype="input"/>
+      <node ref="U3" pin="6" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="1" pinfunction="TEMP" pintype="input"/>
+      <node ref="U4" pin="3" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T1" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T2" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T3" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T4" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T5" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T6" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T7" pinfunction="GND" pintype="input"/>
+      <node ref="U4" pin="T8" pinfunction="GND" pintype="input"/>
+    </net>
+    <net code="16" name="LACTH4">
+      <node ref="IC3" pin="3" pinfunction="PA5" pintype="input"/>
+      <node ref="J1" pin="A3" pinfunction="UTIL7" pintype="input"/>
+      <node ref="JP8" pin="1" pintype="input"/>
+    </net>
+    <net code="17" name="LACTH5">
+      <node ref="IC3" pin="4" pinfunction="PA6" pintype="input"/>
+      <node ref="J1" pin="B3" pinfunction="UTIL3" pintype="input"/>
+      <node ref="JP8" pin="3" pintype="input"/>
+    </net>
+    <net code="18" name="LACTH6">
+      <node ref="IC3" pin="5" pinfunction="PA7" pintype="input"/>
+      <node ref="J1" pin="A4" pinfunction="UTIL8" pintype="input"/>
+      <node ref="JP9" pin="1" pintype="input"/>
+    </net>
+    <net code="19" name="LATCH0">
+      <node ref="IC2" pin="2" pinfunction="PA6" pintype="input"/>
+      <node ref="IC3" pin="11" pinfunction="PA1" pintype="input"/>
+      <node ref="J1" pin="A1" pinfunction="UTIL5" pintype="input"/>
+      <node ref="JP6" pin="1" pintype="input"/>
+    </net>
+    <net code="20" name="LATCH1">
+      <node ref="IC2" pin="3" pinfunction="PA7" pintype="input"/>
+      <node ref="IC3" pin="12" pinfunction="PA2" pintype="input"/>
+      <node ref="J1" pin="B1" pinfunction="UTIL1" pintype="input"/>
+      <node ref="JP6" pin="3" pintype="input"/>
+    </net>
+    <net code="21" name="LATCH2">
+      <node ref="IC3" pin="13" pinfunction="PA3" pintype="input"/>
+      <node ref="J1" pin="A2" pinfunction="UTIL6" pintype="input"/>
+      <node ref="JP7" pin="1" pintype="input"/>
+    </net>
+    <net code="22" name="LATCH3">
+      <node ref="IC3" pin="2" pinfunction="PA4" pintype="input"/>
+      <node ref="J1" pin="B2" pinfunction="UTIL2" pintype="input"/>
+      <node ref="JP7" pin="3" pintype="input"/>
+    </net>
+    <net code="23" name="Net-(C5-Pad1)">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="VCC" pintype="input"/>
+    </net>
+    <net code="24" name="Net-(D1-Pad2)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="Q4" pin="1" pinfunction="B" pintype="input"/>
+      <node ref="R19" pin="2" pintype="passive"/>
+    </net>
+    <net code="25" name="Net-(IC1-Pad4)">
+      <node ref="IC1" pin="4" pinfunction="D0" pintype="input"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="26" name="Net-(L1-Pad1)">
+      <node ref="L1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="SW" pintype="input"/>
+    </net>
+    <net code="27" name="Net-(LED1-Pad1)">
+      <node ref="LED1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+    </net>
+    <net code="28" name="Net-(LED2-Pad2)">
+      <node ref="LED2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="29" name="Net-(Q1-Pad1)">
+      <node ref="Q1" pin="1" pinfunction="D1" pintype="input"/>
+      <node ref="Q1" pin="6" pinfunction="D2" pintype="input"/>
+    </net>
+    <net code="30" name="Net-(Q1-Pad3)">
+      <node ref="Q1" pin="3" pinfunction="G1" pintype="input"/>
+      <node ref="U3" pin="1" pinfunction="OD" pintype="input"/>
+    </net>
+    <net code="31" name="Net-(Q1-Pad4)">
+      <node ref="Q1" pin="4" pinfunction="G2" pintype="input"/>
+      <node ref="U3" pin="3" pinfunction="OC" pintype="input"/>
+    </net>
+    <net code="32" name="Net-(Q3-Pad1)">
+      <node ref="Q3" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="Q4" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+    </net>
+    <net code="33" name="Net-(R11-Pad2)">
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="CS" pintype="input"/>
+    </net>
+    <net code="34" name="Net-(R15-Pad1)">
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="SJ2" pin="2" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="35" name="Net-(R15-Pad2)">
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+      <node ref="U4" pin="2" pinfunction="PROG" pintype="input"/>
+    </net>
+    <net code="36" name="Net-(R20-Pad2)">
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="FB" pintype="input"/>
+    </net>
+    <net code="37" name="Net-(R22-Pad1)">
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="SJ3" pin="2" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="38" name="Net-(R23-Pad1)">
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="SJ4" pin="2" pinfunction="B" pintype="passive"/>
+    </net>
+    <net code="39" name="PROG">
+      <node ref="IC1" pin="18" pinfunction="D3" pintype="input"/>
+      <node ref="J1" pin="B12" pinfunction="PROG" pintype="input"/>
+      <node ref="JP1" pin="1" pintype="input"/>
+    </net>
+    <net code="40" name="PRT-">
+      <node ref="Q1" pin="5" pinfunction="S2" pintype="input"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="SW2" pin="1" pintype="input"/>
+    </net>
+    <net code="41" name="RST">
+      <node ref="IC1" pin="1" pinfunction="~{RST}" pintype="input"/>
+      <node ref="IC2" pin="7" pinfunction="PA3" pintype="input"/>
+      <node ref="IC3" pin="7" pinfunction="PB2" pintype="input"/>
+      <node ref="J1" pin="B14" pinfunction="RST" pintype="input"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="SW1" pin="3" pintype="input"/>
+      <node ref="SW1" pin="4" pintype="input"/>
+    </net>
+    <net code="42" name="RXD">
+      <node ref="IC1" pin="21" pinfunction="RXD0" pintype="input"/>
+      <node ref="J1" pin="A12" pinfunction="RX" pintype="input"/>
+      <node ref="JP2" pin="2" pintype="input"/>
+    </net>
+    <net code="43" name="SCL">
+      <node ref="IC1" pin="20" pinfunction="D1" pintype="input"/>
+      <node ref="IC2" pin="5" pinfunction="PA2" pintype="input"/>
+      <node ref="IC3" pin="9" pinfunction="PB0" pintype="input"/>
+      <node ref="J1" pin="A9" pinfunction="SCL" pintype="input"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="44" name="SDA">
+      <node ref="IC1" pin="19" pinfunction="D2" pintype="input"/>
+      <node ref="IC2" pin="4" pinfunction="PA1" pintype="input"/>
+      <node ref="IC3" pin="8" pinfunction="PB1" pintype="input"/>
+      <node ref="J1" pin="B9" pinfunction="SDA" pintype="input"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+    </net>
+    <net code="45" name="SEL+">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="JP3" pin="1" pintype="input"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="SW2" pin="5" pintype="input"/>
+      <node ref="U1" pin="1" pinfunction="EN" pintype="input"/>
+      <node ref="U1" pin="4" pinfunction="IN" pintype="input"/>
+    </net>
+    <net code="46" name="SETUP">
+      <node ref="IC1" pin="5" pinfunction="D5" pintype="input"/>
+      <node ref="J1" pin="B13" pinfunction="SETUP" pintype="input"/>
+      <node ref="JP1" pin="3" pintype="input"/>
+    </net>
+    <net code="47" name="STDBY">
+      <node ref="IC1" pin="7" pinfunction="D7" pintype="input"/>
+      <node ref="U4" pin="6" pinfunction="STDBY" pintype="input"/>
+    </net>
+    <net code="48" name="TXD">
+      <node ref="IC1" pin="22" pinfunction="TXD0" pintype="input"/>
+      <node ref="J1" pin="A13" pinfunction="TX" pintype="input"/>
+      <node ref="JP2" pin="3" pintype="input"/>
+    </net>
+    <net code="49" name="UPDI">
+      <node ref="IC2" pin="6" pinfunction="RST/UPDI" pintype="input"/>
+      <node ref="IC3" pin="10" pinfunction="RST/UPDI" pintype="input"/>
+      <node ref="J1" pin="A11" pinfunction="UPDI1" pintype="input"/>
+      <node ref="JP5" pin="3" pintype="input"/>
+    </net>
+    <net code="50" name="unconnected-(IC3-Pad6)">
+      <node ref="IC3" pin="6" pinfunction="PB3" pintype="input"/>
+    </net>
+    <net code="51" name="unconnected-(J1-PadA10)">
+      <node ref="J1" pin="A10" pinfunction="UPDI2" pintype="input"/>
+    </net>
+    <net code="52" name="unconnected-(J1-PadB4)">
+      <node ref="J1" pin="B4" pinfunction="UTIL4" pintype="input"/>
+    </net>
+    <net code="53" name="unconnected-(J1-PadB10)">
+      <node ref="J1" pin="B10" pinfunction="UPDI3" pintype="input"/>
+    </net>
+    <net code="54" name="unconnected-(J2-Pad4)">
+      <node ref="J2" pin="4" pinfunction="ID" pintype="passive"/>
+    </net>
+    <net code="55" name="unconnected-(J2-Pad6)">
+      <node ref="J2" pin="6" pinfunction="Shield" pintype="passive"/>
+    </net>
+    <net code="56" name="unconnected-(U3-Pad4)">
+      <node ref="U3" pin="4" pinfunction="TD" pintype="input"/>
+    </net>
+  </nets>
+</export>
