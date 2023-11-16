@@ -360,9 +360,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [
+      "no_common",
       "no_brick_interface",
       "no_brick_logo",
-      "no_common",
       "no_expressif",
       "no_pinhd"
     ],

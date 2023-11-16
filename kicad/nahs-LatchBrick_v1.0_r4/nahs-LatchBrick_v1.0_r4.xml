@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/home/nijo/workspace/nahs-Bricks-GitHub/LatchBrick/kicad/nahs-LatchBrick_v1.0_r4/nahs-LatchBrick_v1.0_r4.kicad_sch</source>
-    <date>Fr 13 Jan 2023 16:04:47 CET</date>
+    <date>Do 02 Feb 2023 21:25:56 CET</date>
     <tool>Eeschema 6.0.10-86aedd382b~118~ubuntu22.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -264,7 +264,7 @@
     </comp>
     <comp ref="J2">
       <value>USB_B_Mini</value>
-      <footprint>Connector_USB:USB_Micro-B_Amphenol_10118194_Horizontal</footprint>
+      <footprint>no_common:USB_Micro-B_Amphenol_10118194_Horizontal</footprint>
       <fields>
         <field name="Storage">SK2 1x3</field>
         <field name="StorageDesc">MicroUSB TypeB</field>

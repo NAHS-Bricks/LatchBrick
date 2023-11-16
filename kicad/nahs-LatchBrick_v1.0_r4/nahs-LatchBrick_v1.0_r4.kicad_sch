@@ -4577,7 +4577,7 @@
     (uuid 37c4d311-ec8e-417b-aba7-859c05b65d7b)
     (property "Reference" "J2" (id 0) (at 85.09 81.28 0))
     (property "Value" "USB_B_Mini" (id 1) (at 85.09 83.82 0))
-    (property "Footprint" "Connector_USB:USB_Micro-B_Amphenol_10118194_Horizontal" (id 2) (at 88.9 95.25 0)
+    (property "Footprint" "no_common:USB_Micro-B_Amphenol_10118194_Horizontal" (id 2) (at 88.9 95.25 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 88.9 95.25 0)
@@ -6307,7 +6307,7 @@
       (reference "J1") (unit 1) (value "Brick-Interface-V4") (footprint "no_brick_interface:Brick_Interface_V4_inset")
     )
     (path "/37c4d311-ec8e-417b-aba7-859c05b65d7b"
-      (reference "J2") (unit 1) (value "USB_B_Mini") (footprint "Connector_USB:USB_Micro-B_Amphenol_10118194_Horizontal")
+      (reference "J2") (unit 1) (value "USB_B_Mini") (footprint "no_common:USB_Micro-B_Amphenol_10118194_Horizontal")
     )
     (path "/6eee5d3c-5ddb-4e02-ba96-6197435dd0af"
       (reference "JP1") (unit 1) (value "PINHD_1X03") (footprint "no_pinhd:PINHD_1X03_2.54_1mm_Round")
